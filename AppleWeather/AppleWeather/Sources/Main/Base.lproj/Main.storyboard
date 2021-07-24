@@ -15,18 +15,84 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VaW-6D-nO3">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wg6-f1-h94">
+                                        <rect key="frame" x="0.0" y="44" width="414" height="782"/>
+                                        <subviews>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1j4-da-yMC">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="782"/>
+                                            </scrollView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="1j4-da-yMC" secondAttribute="bottom" id="VoF-j1-4kA"/>
+                                            <constraint firstAttribute="trailing" secondItem="1j4-da-yMC" secondAttribute="trailing" id="fmC-Kj-f3V"/>
+                                            <constraint firstItem="1j4-da-yMC" firstAttribute="top" secondItem="wg6-f1-h94" secondAttribute="top" id="ngx-Gg-lJU"/>
+                                            <constraint firstItem="1j4-da-yMC" firstAttribute="leading" secondItem="wg6-f1-h94" secondAttribute="leading" id="yNZ-T3-wkt"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Sm-TC-8Pa">
+                                        <rect key="frame" x="0.0" y="826" width="414" height="70"/>
+                                        <subviews>
+                                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="DUb-hz-2eD">
+                                                <rect key="frame" x="146" y="21" width="122" height="28"/>
+                                                <color key="pageIndicatorTintColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="pageChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="4im-lz-lxw"/>
+                                                </connections>
+                                            </pageControl>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                        <constraints>
+                                            <constraint firstItem="DUb-hz-2eD" firstAttribute="centerY" secondItem="4Sm-TC-8Pa" secondAttribute="centerY" id="3nu-gC-5Xf"/>
+                                            <constraint firstItem="DUb-hz-2eD" firstAttribute="centerX" secondItem="4Sm-TC-8Pa" secondAttribute="centerX" id="PNq-bJ-XIs"/>
+                                            <constraint firstAttribute="height" constant="70" id="jFM-aH-FNT"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.87843137250000003" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="wg6-f1-h94" secondAttribute="trailing" id="1W5-al-ITt"/>
+                                    <constraint firstItem="wg6-f1-h94" firstAttribute="leading" secondItem="VaW-6D-nO3" secondAttribute="leading" id="9AT-1J-BeY"/>
+                                    <constraint firstAttribute="bottom" secondItem="4Sm-TC-8Pa" secondAttribute="bottom" id="GWb-Qo-cl3"/>
+                                    <constraint firstAttribute="trailing" secondItem="4Sm-TC-8Pa" secondAttribute="trailing" id="OOv-Hz-40D"/>
+                                    <constraint firstItem="4Sm-TC-8Pa" firstAttribute="top" secondItem="wg6-f1-h94" secondAttribute="bottom" id="e2j-G4-Zyq"/>
+                                    <constraint firstItem="4Sm-TC-8Pa" firstAttribute="leading" secondItem="VaW-6D-nO3" secondAttribute="leading" id="fVl-Px-C83"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="wg6-f1-h94" secondAttribute="top" id="9Se-17-ewu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VaW-6D-nO3" secondAttribute="trailing" id="G1d-3U-c67"/>
+                            <constraint firstItem="VaW-6D-nO3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GC3-p1-bhs"/>
+                            <constraint firstItem="VaW-6D-nO3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="U0V-Kf-3Jz"/>
+                            <constraint firstAttribute="bottom" secondItem="VaW-6D-nO3" secondAttribute="bottom" id="oPz-Rw-Ylw"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pagecontrol" destination="DUb-hz-2eD" id="jkL-FG-mcc"/>
+                        <outlet property="scrollview" destination="1j4-da-yMC" id="Z2v-Y4-iSh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-84" y="94"/>
+            <point key="canvasLocation" x="-71.014492753623188" y="93.75"/>
         </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
