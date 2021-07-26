@@ -14,6 +14,12 @@ class WeatherDetailVC: UIViewController {
     @IBOutlet weak var topviewHeight: NSLayoutConstraint!
     @IBOutlet weak var scroll: UIScrollView!
     
+    @IBOutlet weak var cityLabelTop: NSLayoutConstraint!
+    
+    @IBOutlet weak var temperatureView: UIView!
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var temperatureDegreeLabel: UILabel!
+    
     var height : Int = 300
     
     
@@ -21,52 +27,13 @@ class WeatherDetailVC: UIViewController {
         super.viewDidLoad()
         print("우왕")
         topviewHeight.constant = CGFloat(height)
-        //scroll.delegate = self
-        //topviewHeight.constant = 300
-        
+        setTopUI()
         
     }
     
-    @objc
-    func didRecieveTestNotification(_ notification: Notification) {
-             print("Test Notification")
-     }
-    
-    
-   
-    
-}
+    // MARK:- 가장 상단의 UI
+    func setTopUI(){
+        
+    }
 
-//extension WeatherDetailVC: UIScrollViewDelegate {
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        print("호출되니~")
-//    }
-//
-////    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-////
-////    }
-////
-////
-////    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-////
-////        print("호출됨?")
-////        //print(scrollview.frame.height)
-////        //print(scrollview.contentOffset.y)
-////        if scrollview.contentOffset.y > 0 {
-////            //self.topviewHieght.constant -= scrollview.frame.height
-////            self.topviewHeight.constant = 100
-////            UIView.animate(withDuration: 0.5){
-////                self.view.layoutIfNeeded()
-////            }
-////        }
-////        else {
-////            print("내릴때")
-////            topviewHeight.constant = 300
-////            UIView.animate(withDuration: 0.5){
-////                self.view.layoutIfNeeded()
-////            }
-////        }
-////
-////    }
-//
-//}
+}

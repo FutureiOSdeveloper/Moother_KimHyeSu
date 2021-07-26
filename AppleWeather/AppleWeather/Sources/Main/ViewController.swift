@@ -88,7 +88,11 @@ extension ViewController : UIScrollViewDelegate {
             // 노티
 
             vc.topviewHeight.constant = 100
+            vc.cityLabelTop.constant = 30
+            
             UIView.animate(withDuration: 0.5){
+                vc.temperatureLabel.alpha = 0
+                vc.temperatureDegreeLabel.alpha = 0
                 self.view.layoutIfNeeded()
             }
         }
@@ -96,7 +100,10 @@ extension ViewController : UIScrollViewDelegate {
             //print("내릴때", vc.height)
             //vc.height = 300
             vc.topviewHeight.constant = 300
+            vc.cityLabelTop.constant = 70
             UIView.animate(withDuration: 0.5){
+                vc.temperatureLabel.alpha = 1
+                vc.temperatureDegreeLabel.alpha = 1
                 self.view.layoutIfNeeded()
             }
 
