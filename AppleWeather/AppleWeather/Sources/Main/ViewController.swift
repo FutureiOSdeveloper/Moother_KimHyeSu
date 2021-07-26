@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var scrollview: UIScrollView!
     @IBOutlet weak var pagecontrol: UIPageControl!
     
+    @IBOutlet weak var vccontain: UIView!
+    @IBOutlet weak var scrollcontentsview: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -43,7 +45,8 @@ class ViewController: UIViewController {
             width: UIScreen.main.bounds.width * CGFloat(cityList.count), height: UIScreen.main.bounds.height
         )
         
-        scrollview.alwaysBounceVertical = false
+        //scrollview.alwaysBounceVertical = false
+        //scrollview.alwaysBounceHorizontal = false
         pagecontrol.numberOfPages = cityList.count
         
     }
@@ -64,6 +67,8 @@ class ViewController: UIViewController {
 extension ViewController : UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         pagecontrol.currentPage = Int(floor(scrollview.contentOffset.x / UIScreen.main.bounds.width))
+        
+        print(scrollview.frame.origin.x)
     }
 }
 

@@ -20,10 +20,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wg6-f1-h94">
-                                        <rect key="frame" x="0.0" y="44" width="414" height="782"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                         <subviews>
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1j4-da-yMC">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="782"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                             </scrollView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGrayColor"/>
@@ -34,43 +34,45 @@
                                             <constraint firstItem="1j4-da-yMC" firstAttribute="leading" secondItem="wg6-f1-h94" secondAttribute="leading" id="yNZ-T3-wkt"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Sm-TC-8Pa">
-                                        <rect key="frame" x="0.0" y="826" width="414" height="70"/>
-                                        <subviews>
-                                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="DUb-hz-2eD">
-                                                <rect key="frame" x="146" y="21" width="122" height="28"/>
-                                                <color key="pageIndicatorTintColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                <connections>
-                                                    <action selector="pageChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="4im-lz-lxw"/>
-                                                </connections>
-                                            </pageControl>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                        <constraints>
-                                            <constraint firstItem="DUb-hz-2eD" firstAttribute="centerY" secondItem="4Sm-TC-8Pa" secondAttribute="centerY" id="3nu-gC-5Xf"/>
-                                            <constraint firstItem="DUb-hz-2eD" firstAttribute="centerX" secondItem="4Sm-TC-8Pa" secondAttribute="centerX" id="PNq-bJ-XIs"/>
-                                            <constraint firstAttribute="height" constant="70" id="jFM-aH-FNT"/>
-                                        </constraints>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.87843137250000003" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="wg6-f1-h94" secondAttribute="trailing" id="1W5-al-ITt"/>
                                     <constraint firstItem="wg6-f1-h94" firstAttribute="leading" secondItem="VaW-6D-nO3" secondAttribute="leading" id="9AT-1J-BeY"/>
-                                    <constraint firstAttribute="bottom" secondItem="4Sm-TC-8Pa" secondAttribute="bottom" id="GWb-Qo-cl3"/>
-                                    <constraint firstAttribute="trailing" secondItem="4Sm-TC-8Pa" secondAttribute="trailing" id="OOv-Hz-40D"/>
-                                    <constraint firstItem="4Sm-TC-8Pa" firstAttribute="top" secondItem="wg6-f1-h94" secondAttribute="bottom" id="e2j-G4-Zyq"/>
-                                    <constraint firstItem="4Sm-TC-8Pa" firstAttribute="leading" secondItem="VaW-6D-nO3" secondAttribute="leading" id="fVl-Px-C83"/>
+                                    <constraint firstAttribute="bottom" secondItem="wg6-f1-h94" secondAttribute="bottom" id="CIi-Jf-nog"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Sm-TC-8Pa">
+                                <rect key="frame" x="0.0" y="826" width="414" height="70"/>
+                                <subviews>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="DUb-hz-2eD">
+                                        <rect key="frame" x="10" y="21" width="394" height="28"/>
+                                        <color key="pageIndicatorTintColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="pageChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="4im-lz-lxw"/>
+                                        </connections>
+                                    </pageControl>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="61y-X2-QPS"/>
+                                    <constraint firstItem="DUb-hz-2eD" firstAttribute="top" secondItem="4Sm-TC-8Pa" secondAttribute="top" constant="21" id="HR3-SP-9E4"/>
+                                    <constraint firstItem="DUb-hz-2eD" firstAttribute="leading" secondItem="4Sm-TC-8Pa" secondAttribute="leading" constant="10" id="Kn1-fg-TyA"/>
+                                    <constraint firstAttribute="bottom" secondItem="DUb-hz-2eD" secondAttribute="bottom" constant="21" id="fuO-uB-gI7"/>
+                                    <constraint firstAttribute="trailing" secondItem="DUb-hz-2eD" secondAttribute="trailing" constant="10" id="w9M-jt-KwZ"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="wg6-f1-h94" secondAttribute="top" id="9Se-17-ewu"/>
+                            <constraint firstAttribute="bottom" secondItem="4Sm-TC-8Pa" secondAttribute="bottom" id="1LS-9M-4vm"/>
+                            <constraint firstItem="VaW-6D-nO3" firstAttribute="top" secondItem="wg6-f1-h94" secondAttribute="top" id="9Se-17-ewu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VaW-6D-nO3" secondAttribute="trailing" id="G1d-3U-c67"/>
                             <constraint firstItem="VaW-6D-nO3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GC3-p1-bhs"/>
+                            <constraint firstItem="4Sm-TC-8Pa" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="RPm-AA-kO6"/>
                             <constraint firstItem="VaW-6D-nO3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="U0V-Kf-3Jz"/>
+                            <constraint firstItem="4Sm-TC-8Pa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eIv-Je-v21"/>
                             <constraint firstAttribute="bottom" secondItem="VaW-6D-nO3" secondAttribute="bottom" id="oPz-Rw-Ylw"/>
                         </constraints>
                     </view>

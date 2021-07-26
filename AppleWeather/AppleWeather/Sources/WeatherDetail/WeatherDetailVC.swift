@@ -11,21 +11,38 @@ class WeatherDetailVC: UIViewController {
     
     public static let identifier = "WeatherDetailVC"
 
+    @IBOutlet weak var topviewHeight: NSLayoutConstraint!
+    @IBOutlet weak var scrollview: UIScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        scrollview.delegate = self
         // Do any additional setup after loading the view.
     }
+}
+
+extension WeatherDetailVC: UIScrollViewDelegate {
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        //print(scrollview.frame.height)
+        print(scrollview.contentOffset.y)
+        if scrollview.contentOffset.y > 0 {
+            //self.topviewHieght.constant -= scrollview.frame.height
+            self.topviewHeight.constant = 100
+            UIView.animate(withDuration: 0.5){
+                self.view.layoutIfNeeded()
+            }
+        }
+        else {
+            print("내릴때")
+            topviewHeight.constant = 300
+            UIView.animate(withDuration: 0.5){
+                self.view.layoutIfNeeded()
+            }
+        }
+        
+        
     }
-    */
-
+    
 }
