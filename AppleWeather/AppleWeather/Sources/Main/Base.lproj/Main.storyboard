@@ -24,12 +24,26 @@
                                         <subviews>
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1j4-da-yMC">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqU-zp-3Mm">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="eqU-zp-3Mm" secondAttribute="trailing" id="9Ph-qM-mmO"/>
+                                                    <constraint firstItem="eqU-zp-3Mm" firstAttribute="top" secondItem="1j4-da-yMC" secondAttribute="top" id="9oY-qq-jqi"/>
+                                                    <constraint firstAttribute="bottom" secondItem="eqU-zp-3Mm" secondAttribute="bottom" id="VQM-op-LoA"/>
+                                                    <constraint firstItem="eqU-zp-3Mm" firstAttribute="leading" secondItem="1j4-da-yMC" secondAttribute="leading" id="ego-7S-Agt"/>
+                                                </constraints>
                                             </scrollView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGrayColor"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="1j4-da-yMC" secondAttribute="bottom" id="VoF-j1-4kA"/>
                                             <constraint firstAttribute="trailing" secondItem="1j4-da-yMC" secondAttribute="trailing" id="fmC-Kj-f3V"/>
+                                            <constraint firstItem="eqU-zp-3Mm" firstAttribute="height" secondItem="wg6-f1-h94" secondAttribute="height" id="igb-OL-GH8"/>
+                                            <constraint firstItem="eqU-zp-3Mm" firstAttribute="width" secondItem="wg6-f1-h94" secondAttribute="width" priority="250" id="kV2-4S-MFz"/>
                                             <constraint firstItem="1j4-da-yMC" firstAttribute="top" secondItem="wg6-f1-h94" secondAttribute="top" id="ngx-Gg-lJU"/>
                                             <constraint firstItem="1j4-da-yMC" firstAttribute="leading" secondItem="wg6-f1-h94" secondAttribute="leading" id="yNZ-T3-wkt"/>
                                         </constraints>
@@ -77,6 +91,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="containView" destination="eqU-zp-3Mm" id="fRN-48-dxi"/>
+                        <outlet property="containviewWidth" destination="kV2-4S-MFz" id="VY0-Wy-Ji6"/>
                         <outlet property="pagecontrol" destination="DUb-hz-2eD" id="jkL-FG-mcc"/>
                         <outlet property="scrollview" destination="1j4-da-yMC" id="Z2v-Y4-iSh"/>
                     </connections>

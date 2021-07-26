@@ -10,42 +10,54 @@ import UIKit
 class ViewController: UIViewController {
     
     var cityList : [String] = []
+    var vcList : [UIViewController] = []
+    
 
+    @IBOutlet weak var containviewWidth: NSLayoutConstraint!
     @IBOutlet weak var scrollview: UIScrollView!
     @IBOutlet weak var pagecontrol: UIPageControl!
     
+    @IBOutlet weak var containView: UIView!
     @IBOutlet weak var vccontain: UIView!
     @IBOutlet weak var scrollcontentsview: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        print("메인")
         setDummy()
         setScrollviewUI()
-        // Do any additional setup after loading the view.
+        
     }
     
     func setScrollviewUI(){
         scrollview.delegate = self
-
+        
+        
+        
         for index in 0..<cityList.count {
             
-            let containView = UIView()
+            
+            let containerView = UIView()
             let sb = UIStoryboard(name: "WeatherDetail", bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: WeatherDetailVC.identifier)
             
-            containView.frame = UIScreen.main.bounds
-            containView.frame.origin.x = UIScreen.main.bounds.width * CGFloat(index)
-            scrollview.addSubview(containView)
-            containView.addSubview(vc.view)
-    
+            guard let vc = sb.instantiateViewController(withIdentifier: WeatherDetailVC.identifier) as? WeatherDetailVC
+            else { return }
+ 
+            containerView.frame = UIScreen.main.bounds
+            containerView.frame.origin.x = UIScreen.main.bounds.width * CGFloat(index)
+            containView.addSubview(containerView)
+            containerView.addSubview(vc.view)
             
+            vc.scroll.delegate = self
+            vcList.append(vc)
         }
+        
+        containviewWidth.constant = UIScreen.main.bounds.width * CGFloat(cityList.count)
         
         scrollview.contentSize = CGSize(
             width: UIScreen.main.bounds.width * CGFloat(cityList.count), height: UIScreen.main.bounds.height
         )
         
-        //scrollview.alwaysBounceVertical = false
+        scrollview.alwaysBounceVertical = false
         //scrollview.alwaysBounceHorizontal = false
         pagecontrol.numberOfPages = cityList.count
         
@@ -65,10 +77,31 @@ class ViewController: UIViewController {
 }
 
 extension ViewController : UIScrollViewDelegate {
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        pagecontrol.currentPage = Int(floor(scrollview.contentOffset.x / UIScreen.main.bounds.width))
         
-        print(scrollview.frame.origin.x)
+        pagecontrol.currentPage = Int(floor(scrollview.contentOffset.x / UIScreen.main.bounds.width))
+
+        guard let vc = vcList[pagecontrol.currentPage] as? WeatherDetailVC else { return }
+
+        if vc.scroll.contentOffset.y > 0 {
+            // 노티
+
+            vc.topviewHeight.constant = 100
+            UIView.animate(withDuration: 0.5){
+                self.view.layoutIfNeeded()
+            }
+        }
+        else {
+            //print("내릴때", vc.height)
+            //vc.height = 300
+            vc.topviewHeight.constant = 300
+            UIView.animate(withDuration: 0.5){
+                self.view.layoutIfNeeded()
+            }
+
+        }
+        
     }
 }
 

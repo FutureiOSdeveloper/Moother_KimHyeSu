@@ -13,7 +13,7 @@
             <objects>
                 <viewController storyboardIdentifier="WeatherDetailVC" id="Y6W-OH-hqX" customClass="WeatherDetailVC" customModule="AppleWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="2000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tAO-am-kB8">
@@ -31,10 +31,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cPa-Ei-O8v">
-                                <rect key="frame" x="0.0" y="444" width="414" height="382"/>
+                                <rect key="frame" x="0.0" y="444" width="414" height="1486"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="drz-yG-cPp">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="382"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1486"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TgE-zb-htW">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
@@ -75,7 +75,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AWt-VO-fVD">
-                                <rect key="frame" x="0.0" y="826" width="414" height="70"/>
+                                <rect key="frame" x="0.0" y="1930" width="414" height="70"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="l1b-X9-vNy"/>
@@ -100,8 +100,9 @@
                             <constraint firstItem="cPa-Ei-O8v" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="wlH-JM-Kzq"/>
                         </constraints>
                     </view>
+                    <size key="freeformSize" width="414" height="2000"/>
                     <connections>
-                        <outlet property="scrollview" destination="drz-yG-cPp" id="4Cg-HN-w30"/>
+                        <outlet property="scroll" destination="drz-yG-cPp" id="5iO-vJ-AWi"/>
                         <outlet property="topviewHeight" destination="2Z0-lP-BER" id="zG3-ah-5fw"/>
                     </connections>
                 </viewController>
