@@ -26,26 +26,64 @@ class WeatherDetailVC: UIViewController {
         super.viewDidLoad()
         tableview.delegate = self
         tableview.dataSource = self
+        tableview.backgroundColor = .none
+        print(labelTop.constant)
+        
+        let snib = UINib(nibName: "HeaderTVC", bundle: nil)
+        tableview.register(snib, forCellReuseIdentifier: "HeaderTVC")
+                
+        
     }
 }
 
 extension WeatherDetailVC: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(tableview.contentOffset.y)
-        print("labeltop",labelTop.constant)
+        //print(tableview.contentOffset.y)
+        //print("labeltop",labelTop.constant)
         if tableview.contentOffset.y > 0 {
-            if tableview.contentOffset.y < 70 {
-                labelTop.constant = 100 - tableview.contentOffset.y
+            if tableview.contentOffset.y < 60 {
+                
+                if labelTop.constant < 20 {
+                    labelTop.constant = 20
+                }
+                else {
+                    labelTop.constant = 80 - tableview.contentOffset.y
+                    UIView.animate(withDuration: 0.5){
+                        self.temperatureLabel.alpha = ((self.labelTop.constant-30)/100)
+                    }
+                }
+            }
+            else {
+                UIView.animate(withDuration: 0.5){
+                    self.temperatureLabel.alpha = 0
+                }
             }
         }
         else {
-            labelTop.constant = 100
+            labelTop.constant = 80
+            temperatureLabel.alpha = 1
         }
     }
 }
 
 extension WeatherDetailVC: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        switch section {
+                case 0:
+                    let view = UIView()
+                    view.backgroundColor = .black
+                    return view
+                case 1:
+                    let headerview = UIView()
+                    guard let headercell = tableView.dequeueReusableCell(withIdentifier: "HeaderTVC") as? HeaderTVC else { return UIView() }
+                    headerview.addSubview(headercell)
+                    return headerview
+                    
+            
+                default:
+                    return UIView()
+                }
+    }
 }
 
 extension WeatherDetailVC: UITableViewDataSource {
@@ -54,18 +92,7 @@ extension WeatherDetailVC: UITableViewDataSource {
         return 2
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        switch section {
-        case 0:
-            let view = UIView()
-            view.backgroundColor = .black
-            return view
-        case 1:
-            return topview
-        default:
-            return UIView()
-        }
-    }
+
     
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

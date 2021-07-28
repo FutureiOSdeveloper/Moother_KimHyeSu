@@ -13,6 +13,10 @@
 		151175E026ABE89600FD4077 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 151175DE26ABE89600FD4077 /* Main.storyboard */; };
 		151175E226ABE89900FD4077 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 151175E126ABE89900FD4077 /* Assets.xcassets */; };
 		151175E526ABE89900FD4077 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 151175E326ABE89900FD4077 /* LaunchScreen.storyboard */; };
+		15B2435626B1BFA800301D23 /* HeaderTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2435426B1BFA800301D23 /* HeaderTVC.swift */; };
+		15B2435726B1BFA800301D23 /* HeaderTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B2435526B1BFA800301D23 /* HeaderTVC.xib */; };
+		15B2435B26B1C49600301D23 /* HeaderCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2435926B1C49600301D23 /* HeaderCVC.swift */; };
+		15B2435C26B1C49600301D23 /* HeaderCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B2435A26B1C49600301D23 /* HeaderCVC.xib */; };
 		15D0517A26AC562A0012BC74 /* WeatherDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15D0517926AC562A0012BC74 /* WeatherDetail.storyboard */; };
 		15D0517C26AC563C0012BC74 /* WeatherDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D0517B26AC563C0012BC74 /* WeatherDetailVC.swift */; };
 /* End PBXBuildFile section */
@@ -26,6 +30,10 @@
 		151175E126ABE89900FD4077 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		151175E426ABE89900FD4077 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		151175E626ABE89900FD4077 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15B2435426B1BFA800301D23 /* HeaderTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTVC.swift; sourceTree = "<group>"; };
+		15B2435526B1BFA800301D23 /* HeaderTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTVC.xib; sourceTree = "<group>"; };
+		15B2435926B1C49600301D23 /* HeaderCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCVC.swift; sourceTree = "<group>"; };
+		15B2435A26B1C49600301D23 /* HeaderCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCVC.xib; sourceTree = "<group>"; };
 		15D0517926AC562A0012BC74 /* WeatherDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WeatherDetail.storyboard; sourceTree = "<group>"; };
 		15D0517B26AC563C0012BC74 /* WeatherDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,11 +104,23 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		15B2435826B1C06600301D23 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				15B2435426B1BFA800301D23 /* HeaderTVC.swift */,
+				15B2435526B1BFA800301D23 /* HeaderTVC.xib */,
+				15B2435926B1C49600301D23 /* HeaderCVC.swift */,
+				15B2435A26B1C49600301D23 /* HeaderCVC.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		15D0517826AC560C0012BC74 /* WeatherDetail */ = {
 			isa = PBXGroup;
 			children = (
 				15D0517926AC562A0012BC74 /* WeatherDetail.storyboard */,
 				15D0517B26AC563C0012BC74 /* WeatherDetailVC.swift */,
+				15B2435826B1C06600301D23 /* Cell */,
 			);
 			path = WeatherDetail;
 			sourceTree = "<group>";
@@ -163,9 +183,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				151175E526ABE89900FD4077 /* LaunchScreen.storyboard in Resources */,
+				15B2435726B1BFA800301D23 /* HeaderTVC.xib in Resources */,
 				151175E226ABE89900FD4077 /* Assets.xcassets in Resources */,
 				15D0517A26AC562A0012BC74 /* WeatherDetail.storyboard in Resources */,
 				151175E026ABE89600FD4077 /* Main.storyboard in Resources */,
+				15B2435C26B1C49600301D23 /* HeaderCVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,7 +199,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				15D0517C26AC563C0012BC74 /* WeatherDetailVC.swift in Sources */,
+				15B2435626B1BFA800301D23 /* HeaderTVC.swift in Sources */,
 				151175DD26ABE89600FD4077 /* ViewController.swift in Sources */,
+				15B2435B26B1C49600301D23 /* HeaderCVC.swift in Sources */,
 				151175D926ABE89600FD4077 /* AppDelegate.swift in Sources */,
 				151175DB26ABE89600FD4077 /* SceneDelegate.swift in Sources */,
 			);

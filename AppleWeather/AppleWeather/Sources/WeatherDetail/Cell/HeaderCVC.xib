@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="HeaderCVC" customModule="AppleWeather" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="73" height="133"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="73" height="133"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hGH-1q-KpA">
+                        <rect key="frame" x="0.0" y="0.0" width="73" height="133"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지금" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWU-Ja-1QX">
+                                <rect key="frame" x="0.0" y="10" width="73" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⛅️" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssf-Jc-Chb">
+                                <rect key="frame" x="0.0" y="43" width="73" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27º" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2V-tM-IWz">
+                                <rect key="frame" x="0.0" y="79" width="73" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="GWU-Ja-1QX" secondAttribute="trailing" id="1hR-gP-HNd"/>
+                            <constraint firstItem="GWU-Ja-1QX" firstAttribute="top" secondItem="hGH-1q-KpA" secondAttribute="top" constant="10" id="EI3-5h-E9e"/>
+                            <constraint firstItem="ssf-Jc-Chb" firstAttribute="top" secondItem="GWU-Ja-1QX" secondAttribute="bottom" constant="15" id="FQU-Th-fZy"/>
+                            <constraint firstItem="GWU-Ja-1QX" firstAttribute="leading" secondItem="hGH-1q-KpA" secondAttribute="leading" id="H1e-kS-VLn"/>
+                            <constraint firstItem="ssf-Jc-Chb" firstAttribute="leading" secondItem="hGH-1q-KpA" secondAttribute="leading" id="LgE-Sq-rh9"/>
+                            <constraint firstAttribute="trailing" secondItem="r2V-tM-IWz" secondAttribute="trailing" id="XWA-gv-drB"/>
+                            <constraint firstItem="r2V-tM-IWz" firstAttribute="leading" secondItem="hGH-1q-KpA" secondAttribute="leading" id="b0j-ey-3da"/>
+                            <constraint firstItem="r2V-tM-IWz" firstAttribute="top" secondItem="ssf-Jc-Chb" secondAttribute="bottom" constant="15" id="yYe-mw-VX0"/>
+                            <constraint firstAttribute="trailing" secondItem="ssf-Jc-Chb" secondAttribute="trailing" id="zke-as-Hr2"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="hGH-1q-KpA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="7rK-hi-4In"/>
+                <constraint firstAttribute="trailing" secondItem="hGH-1q-KpA" secondAttribute="trailing" id="FOt-cu-FFE"/>
+                <constraint firstItem="hGH-1q-KpA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="KVA-wG-HXg"/>
+                <constraint firstAttribute="bottom" secondItem="hGH-1q-KpA" secondAttribute="bottom" id="NCY-wi-iU4"/>
+            </constraints>
+            <size key="customSize" width="73" height="133"/>
+            <point key="canvasLocation" x="-6.5217391304347831" y="107.47767857142857"/>
+        </collectionViewCell>
+    </objects>
+</document>

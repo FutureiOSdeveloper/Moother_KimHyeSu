@@ -28,38 +28,32 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xiC-Fs-aL7">
-                                <rect key="frame" x="158.5" y="198.5" width="97" height="107.5"/>
+                                <rect key="frame" x="158.5" y="178.5" width="97" height="107.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="90"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gut-jW-k8q">
-                                <rect key="frame" x="87" y="384" width="240" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="마포구" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7m-og-I14">
-                                <rect key="frame" x="177" y="144" width="60" height="27.5"/>
+                                <rect key="frame" x="177" y="124" width="60" height="27.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="청명함" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWn-gp-Vc8">
-                                <rect key="frame" x="189" y="176.5" width="36.5" height="17"/>
+                                <rect key="frame" x="189" y="156.5" width="36.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="hfe-O4-zMN" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="4y2-5D-zAF"/>
                             <constraint firstItem="pWn-gp-Vc8" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="6Q1-BM-DU2"/>
                             <constraint firstItem="hfe-O4-zMN" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="6tn-LF-cTm"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="AWt-VO-fVD" secondAttribute="trailing" id="8Ll-s7-rsg"/>
                             <constraint firstItem="hfe-O4-zMN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Awu-uj-Ekk"/>
-                            <constraint firstItem="y7m-og-I14" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="100" id="HSN-Lw-wga"/>
+                            <constraint firstItem="y7m-og-I14" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="80" id="HSN-Lw-wga"/>
                             <constraint firstAttribute="bottom" secondItem="AWt-VO-fVD" secondAttribute="bottom" id="Jcc-lh-ozU"/>
                             <constraint firstItem="AWt-VO-fVD" firstAttribute="top" secondItem="hfe-O4-zMN" secondAttribute="bottom" id="PKc-3n-Udr"/>
                             <constraint firstItem="y7m-og-I14" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="Uhp-sW-LZ5"/>
@@ -73,7 +67,6 @@
                         <outlet property="labelTop" destination="HSN-Lw-wga" id="mvm-AB-AzG"/>
                         <outlet property="tableview" destination="hfe-O4-zMN" id="k6q-xv-jAQ"/>
                         <outlet property="temperatureLabel" destination="xiC-Fs-aL7" id="Prx-9H-gY3"/>
-                        <outlet property="topview" destination="Gut-jW-k8q" id="bOL-HC-vwI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
