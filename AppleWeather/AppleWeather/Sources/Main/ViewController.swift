@@ -79,36 +79,7 @@ class ViewController: UIViewController {
 extension ViewController : UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
         pagecontrol.currentPage = Int(floor(scrollview.contentOffset.x / UIScreen.main.bounds.width))
-
-        //guard let vc = vcList[pagecontrol.currentPage] as? WeatherDetailVC else { return }
-
-//        if vc.scroll.contentOffset.y > 0 {
-//            // 노티
-//
-//            vc.topviewHeight.constant = 100
-//            vc.cityLabelTop.constant = 30
-//
-//            UIView.animate(withDuration: 1){
-//                vc.temperatureLabel.alpha = 0
-//                vc.temperatureDegreeLabel.alpha = 0
-//                self.view.layoutIfNeeded()
-//            }
-//        }
-//        else {
-//            //print("내릴때", vc.height)
-//            //vc.height = 300
-//            vc.topviewHeight.constant = 300
-//            vc.cityLabelTop.constant = 70
-//            UIView.animate(withDuration: 1){
-//                vc.temperatureLabel.alpha = 1
-//                vc.temperatureDegreeLabel.alpha = 1
-//                self.view.layoutIfNeeded()
-//            }
-//
-//        }
-        
     }
 }
 

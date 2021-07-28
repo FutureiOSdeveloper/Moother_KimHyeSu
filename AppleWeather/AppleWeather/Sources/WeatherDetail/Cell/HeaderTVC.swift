@@ -9,6 +9,7 @@ import UIKit
 
 class HeaderTVC: UITableViewCell {
 
+    @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var collectionview: UICollectionView!
     @IBOutlet weak var width: NSLayoutConstraint!
     override func awakeFromNib() {

@@ -10,18 +10,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="202" id="KGk-i7-Jjw" customClass="HeaderTVC" customModule="AppleWeather" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="390" height="202"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="HeaderTVC" customModule="AppleWeather" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="391" height="202"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="390" height="202"/>
+                <rect key="frame" x="0.0" y="0.0" width="391" height="202"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f2R-wG-JAp">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="391" height="200"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="851-kA-405">
-                                <rect key="frame" x="0.0" y="100" width="390" height="100"/>
+                                <rect key="frame" x="0.0" y="100" width="391" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="LHc-pF-9Ua"/>
@@ -34,14 +34,14 @@
                                 </collectionViewFlowLayout>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N6S-au-jLS">
-                                <rect key="frame" x="0.0" y="199" width="390" height="1"/>
+                                <rect key="frame" x="0.0" y="199" width="391" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="0.49230826097746494" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="aPm-Th-WJV"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2b4-7F-5Yu">
-                                <rect key="frame" x="0.0" y="99" width="390" height="1"/>
+                                <rect key="frame" x="0.0" y="99" width="391" height="1"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.49326488129770008" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="GKl-fh-P4u"/>
@@ -49,7 +49,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="linkColor"/>
+                        <color key="backgroundColor" red="0.10980392156862745" green="0.18431372549019609" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="2b4-7F-5Yu" secondAttribute="trailing" id="42C-EI-utM"/>
                             <constraint firstItem="851-kA-405" firstAttribute="leading" secondItem="f2R-wG-JAp" secondAttribute="leading" id="8QR-jO-HwW"/>
@@ -72,15 +72,13 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="bgView" destination="f2R-wG-JAp" id="Ybt-Qp-Ylr"/>
                 <outlet property="collectionview" destination="851-kA-405" id="iO4-U9-mSm"/>
             </connections>
-            <point key="canvasLocation" x="147.82608695652175" y="160.04464285714286"/>
+            <point key="canvasLocation" x="148.55072463768118" y="160.04464285714286"/>
         </tableViewCell>
     </objects>
     <resources>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

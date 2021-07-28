@@ -24,22 +24,23 @@ class WeatherDetailVC: UIViewController {
     @IBOutlet weak var labelTop: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableview.backgroundColor = .none
         tableview.delegate = self
         tableview.dataSource = self
-        tableview.backgroundColor = .none
+        
         print(labelTop.constant)
         
         let snib = UINib(nibName: "HeaderTVC", bundle: nil)
         tableview.register(snib, forCellReuseIdentifier: "HeaderTVC")
                 
+        let daysnib = UINib(nibName: DaysTVC.identifier, bundle: nil)
+        tableview.register(daysnib, forCellReuseIdentifier: DaysTVC.identifier)
         
     }
 }
 
 extension WeatherDetailVC: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        //print(tableview.contentOffset.y)
-        //print("labeltop",labelTop.constant)
         if tableview.contentOffset.y > 0 {
             if tableview.contentOffset.y < 60 {
                 
@@ -71,18 +72,21 @@ extension WeatherDetailVC: UITableViewDelegate {
         switch section {
                 case 0:
                     let view = UIView()
-                    view.backgroundColor = .black
+                    view.backgroundColor = .none
                     return view
                 case 1:
                     let headerview = UIView()
                     guard let headercell = tableView.dequeueReusableCell(withIdentifier: "HeaderTVC") as? HeaderTVC else { return UIView() }
                     headerview.addSubview(headercell)
                     return headerview
-                    
-            
+                
                 default:
                     return UIView()
                 }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = .clear
     }
 }
 
@@ -109,9 +113,45 @@ extension WeatherDetailVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let tvc = UITableViewCell()
+        tvc.backgroundColor = .none
+        
+        if indexPath.section == 1 {
+            
+            switch indexPath.row {
+            case 0 ... 7:
+                
+                guard let cell = tableview.dequeueReusableCell(withIdentifier: DaysTVC.identifier, for: indexPath) as? DaysTVC else {
+                    print("여기")
+                    return UITableViewCell()
+                }
+                
+                return cell
+                
+            default:
+                
+                return tvc
+            }
+            
+        }
+        
+        return tvc
     }
     
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if indexPath.section == 1 {
+            switch indexPath.row {
+            case 0...7:
+                return 35
+            default:
+                return 100
+            }
+        }
+        
+        return 40
+    }
     
 }
 
