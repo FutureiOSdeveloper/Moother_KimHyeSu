@@ -39,6 +39,9 @@ class WeatherDetailVC: UIViewController {
         let todayNib = UINib(nibName: TodayTVC.identifier, bundle: nil)
         tableview.register(todayNib, forCellReuseIdentifier: TodayTVC.identifier)
         
+        let todayDetailNib = UINib(nibName: TodayDetailTVC.identifier, bundle: nil)
+        tableview.register(todayDetailNib, forCellReuseIdentifier: TodayDetailTVC.identifier)
+        
     }
 }
 
@@ -139,6 +142,12 @@ extension WeatherDetailVC: UITableViewDataSource {
                 
                 return cell
                 
+            case 9:
+                guard let cell = tableview.dequeueReusableCell(withIdentifier: TodayDetailTVC.identifier, for: indexPath) as? TodayDetailTVC else {
+                    return UITableViewCell()
+                }
+                return cell
+                
             default:
                 
                 return tvc
@@ -158,6 +167,8 @@ extension WeatherDetailVC: UITableViewDataSource {
                 return 35
             case 8:
                 return 60
+            case 9:
+                return 200
             default:
                 return 100
             }
