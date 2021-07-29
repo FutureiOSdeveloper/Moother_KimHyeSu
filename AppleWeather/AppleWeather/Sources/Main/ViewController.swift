@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         print("메인")
         setDummy()
         setScrollviewUI()
-        
+        setupPageControl()
     }
     
     func setScrollviewUI(){
@@ -66,6 +66,10 @@ class ViewController: UIViewController {
     func setDummy(){
         cityList.append(contentsOf: ["서울", "부산", "마포구", "용산구", "수원시"])
 
+    }
+    
+    func setupPageControl() {
+         pagecontrol.setIndicatorImage(UIImage(systemName: "location.fill"), forPage: 0)
     }
 
     @IBAction func pageChanged(_ sender: Any) {
