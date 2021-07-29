@@ -25,6 +25,8 @@
 		15B2436826B1E77500301D23 /* TodayDetailTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B2436626B1E77500301D23 /* TodayDetailTVC.xib */; };
 		15B2436B26B1E9EB00301D23 /* TodayDetailCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2436926B1E9EB00301D23 /* TodayDetailCVC.swift */; };
 		15B2436C26B1E9EB00301D23 /* TodayDetailCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B2436A26B1E9EB00301D23 /* TodayDetailCVC.xib */; };
+		15B2436F26B2E05600301D23 /* BottomTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2436D26B2E05600301D23 /* BottomTVC.swift */; };
+		15B2437026B2E05600301D23 /* BottomTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B2436E26B2E05600301D23 /* BottomTVC.xib */; };
 		15D0517A26AC562A0012BC74 /* WeatherDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15D0517926AC562A0012BC74 /* WeatherDetail.storyboard */; };
 		15D0517C26AC563C0012BC74 /* WeatherDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D0517B26AC563C0012BC74 /* WeatherDetailVC.swift */; };
 /* End PBXBuildFile section */
@@ -50,6 +52,8 @@
 		15B2436626B1E77500301D23 /* TodayDetailTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodayDetailTVC.xib; sourceTree = "<group>"; };
 		15B2436926B1E9EB00301D23 /* TodayDetailCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayDetailCVC.swift; sourceTree = "<group>"; };
 		15B2436A26B1E9EB00301D23 /* TodayDetailCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodayDetailCVC.xib; sourceTree = "<group>"; };
+		15B2436D26B2E05600301D23 /* BottomTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTVC.swift; sourceTree = "<group>"; };
+		15B2436E26B2E05600301D23 /* BottomTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomTVC.xib; sourceTree = "<group>"; };
 		15D0517926AC562A0012BC74 /* WeatherDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WeatherDetail.storyboard; sourceTree = "<group>"; };
 		15D0517B26AC563C0012BC74 /* WeatherDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,6 +139,8 @@
 				15B2436626B1E77500301D23 /* TodayDetailTVC.xib */,
 				15B2436926B1E9EB00301D23 /* TodayDetailCVC.swift */,
 				15B2436A26B1E9EB00301D23 /* TodayDetailCVC.xib */,
+				15B2436D26B2E05600301D23 /* BottomTVC.swift */,
+				15B2436E26B2E05600301D23 /* BottomTVC.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -214,6 +220,7 @@
 				15D0517A26AC562A0012BC74 /* WeatherDetail.storyboard in Resources */,
 				15B2436826B1E77500301D23 /* TodayDetailTVC.xib in Resources */,
 				15B2436C26B1E9EB00301D23 /* TodayDetailCVC.xib in Resources */,
+				15B2437026B2E05600301D23 /* BottomTVC.xib in Resources */,
 				151175E026ABE89600FD4077 /* Main.storyboard in Resources */,
 				15B2435C26B1C49600301D23 /* HeaderCVC.xib in Resources */,
 			);
@@ -233,6 +240,7 @@
 				15B2435B26B1C49600301D23 /* HeaderCVC.swift in Sources */,
 				151175D926ABE89600FD4077 /* AppDelegate.swift in Sources */,
 				15B2436726B1E77500301D23 /* TodayDetailTVC.swift in Sources */,
+				15B2436F26B2E05600301D23 /* BottomTVC.swift in Sources */,
 				15B2436B26B1E9EB00301D23 /* TodayDetailCVC.swift in Sources */,
 				151175DB26ABE89600FD4077 /* SceneDelegate.swift in Sources */,
 				15B2436326B1E44700301D23 /* TodayTVC.swift in Sources */,
