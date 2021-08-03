@@ -76,9 +76,9 @@ class ViewController: UIViewController {
     
     @objc func pageChange(notification: NSNotification){
         pagecontrol.currentPage = notification.object as! Int
-        
+        self.scrollview.contentOffset.x = UIScreen.main.bounds.width * CGFloat(self.pagecontrol.currentPage)
 //        UIView.animate(withDuration: 0.3){
-//              self.scrollview.contentOffset.x = UIScreen.main.bounds.width * CGFloat(self.pagecontrol.currentPage)
+//
 //        }
         
     }
