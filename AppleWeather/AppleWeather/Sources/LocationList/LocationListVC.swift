@@ -17,6 +17,8 @@ class LocationListVC: UIViewController {
         super.viewDidLoad()
         tableview.delegate = self
         tableview.dataSource = self
+        tableview.contentInsetAdjustmentBehavior = .never
+        tableview.backgroundColor = .black
         tableviewHeight.constant = 100 + 70*4
     }
 
