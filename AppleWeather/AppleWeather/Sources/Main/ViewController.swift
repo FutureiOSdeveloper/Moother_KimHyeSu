@@ -78,6 +78,15 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func listButtonClicked(_ sender: Any) {
+        
+        let sb = UIStoryboard(name: "LocationList", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: LocationListVC.identifier) as? LocationListVC else {
+            return
+        }
+        
+        self.present(vc, animated: true, completion: nil)
+    }
 }
 
 extension ViewController : UIScrollViewDelegate {

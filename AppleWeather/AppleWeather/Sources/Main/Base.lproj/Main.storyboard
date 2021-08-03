@@ -64,11 +64,21 @@
                                             <action selector="pageChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="4im-lz-lxw"/>
                                         </connections>
                                     </pageControl>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jCb-97-dMh">
+                                        <rect key="frame" x="373" y="24" width="21" height="22"/>
+                                        <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                        <state key="normal" image="list.bullet" catalog="system"/>
+                                        <connections>
+                                            <action selector="listButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c0f-My-rck"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="jCb-97-dMh" firstAttribute="centerY" secondItem="DUb-hz-2eD" secondAttribute="centerY" id="3nX-iq-Uv8"/>
                                     <constraint firstAttribute="height" constant="70" id="61y-X2-QPS"/>
                                     <constraint firstItem="DUb-hz-2eD" firstAttribute="top" secondItem="4Sm-TC-8Pa" secondAttribute="top" constant="21" id="HR3-SP-9E4"/>
                                     <constraint firstItem="DUb-hz-2eD" firstAttribute="leading" secondItem="4Sm-TC-8Pa" secondAttribute="leading" constant="10" id="Kn1-fg-TyA"/>
+                                    <constraint firstAttribute="trailing" secondItem="jCb-97-dMh" secondAttribute="trailing" constant="20" id="NR9-hW-VEj"/>
                                     <constraint firstAttribute="bottom" secondItem="DUb-hz-2eD" secondAttribute="bottom" constant="21" id="fuO-uB-gI7"/>
                                     <constraint firstAttribute="trailing" secondItem="DUb-hz-2eD" secondAttribute="trailing" constant="10" id="w9M-jt-KwZ"/>
                                 </constraints>
@@ -100,6 +110,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="list.bullet" catalog="system" width="128" height="88"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
