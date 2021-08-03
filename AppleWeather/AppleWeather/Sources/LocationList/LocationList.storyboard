@@ -22,9 +22,20 @@
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RF0-cb-hqq">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="796"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="796" id="wGT-nw-pmb"/>
+                                        </constraints>
                                         <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationListTopTVC" rowHeight="73" id="aWT-kR-zOw" customClass="LocationListTopTVC" customModule="AppleWeather" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="24.5" width="414" height="73"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aWT-kR-zOw" id="i51-JI-ApK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="73"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationListTVC" rowHeight="70" id="rgs-ey-cNr" customClass="LocationListTVC" customModule="AppleWeather" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="24.5" width="414" height="70"/>
+                                                <rect key="frame" x="0.0" y="97.5" width="414" height="70"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rgs-ey-cNr" id="qml-hm-hok">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
@@ -71,6 +82,11 @@
                                                         <constraint firstItem="UhW-AN-YVH" firstAttribute="leading" secondItem="qml-hm-hok" secondAttribute="leading" id="fzY-Ir-vgX"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="locationLabel" destination="Ifo-v0-mRc" id="Jy7-Ib-1nE"/>
+                                                    <outlet property="temperatureLabel" destination="VzI-R6-B8C" id="ftw-pz-cM2"/>
+                                                    <outlet property="timeLabel" destination="uSa-To-G9u" id="fWi-GD-Sru"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
@@ -85,9 +101,26 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="upX-Zo-lWJ">
                                 <rect key="frame" x="0.0" y="796" width="414" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4E-W2-yle">
+                                        <rect key="frame" x="17" y="15" width="50" height="33"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <state key="normal" title="ºC / ºF">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLc-ok-cpZ">
+                                        <rect key="frame" x="195" y="21" width="24" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="terminal.fill" catalog="system"/>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="labelColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="gAx-VN-uZh"/>
+                                    <constraint firstItem="a4E-W2-yle" firstAttribute="top" secondItem="upX-Zo-lWJ" secondAttribute="top" constant="15" id="Hh9-QP-ZHW"/>
+                                    <constraint firstItem="a4E-W2-yle" firstAttribute="leading" secondItem="upX-Zo-lWJ" secondAttribute="leading" constant="17" id="JRz-wb-NEP"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -105,6 +138,7 @@
                     </view>
                     <connections>
                         <outlet property="tableview" destination="RF0-cb-hqq" id="Os9-kU-Flc"/>
+                        <outlet property="tableviewHeight" destination="wGT-nw-pmb" id="2Kg-HK-tsM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -113,6 +147,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="terminal.fill" catalog="system" width="128" height="93"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -26,6 +26,8 @@ class ViewController: UIViewController {
         setDummy()
         setScrollviewUI()
         setupPageControl()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(pageChange), name: Notification.Name("noti1"), object: nil)
     }
     
     func setScrollviewUI(){
@@ -71,8 +73,19 @@ class ViewController: UIViewController {
     func setupPageControl() {
          pagecontrol.setIndicatorImage(UIImage(systemName: "location.fill"), forPage: 0)
     }
+    
+    @objc func pageChange(notification: NSNotification){
+        pagecontrol.currentPage = notification.object as! Int
+        
+//        UIView.animate(withDuration: 0.3){
+//              self.scrollview.contentOffset.x = UIScreen.main.bounds.width * CGFloat(self.pagecontrol.currentPage)
+//        }
+        
+    }
 
     @IBAction func pageChanged(_ sender: Any) {
+        
+        
         UIView.animate(withDuration: 0.3){
             self.scrollview.contentOffset.x = UIScreen.main.bounds.width * CGFloat(self.pagecontrol.currentPage)
         }
@@ -84,7 +97,7 @@ class ViewController: UIViewController {
         guard let vc = sb.instantiateViewController(withIdentifier: LocationListVC.identifier) as? LocationListVC else {
             return
         }
-        
+        vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
 }
