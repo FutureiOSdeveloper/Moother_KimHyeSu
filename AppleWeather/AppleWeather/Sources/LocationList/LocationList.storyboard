@@ -106,9 +106,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4E-W2-yle">
                                         <rect key="frame" x="17" y="15" width="50" height="33"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <state key="normal" title="ºC / ºF">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
+                                        <state key="normal" title="ºC / ºF"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLc-ok-cpZ">
                                         <rect key="frame" x="195" y="21" width="24" height="26"/>
@@ -140,6 +138,7 @@
                     <connections>
                         <outlet property="tableview" destination="RF0-cb-hqq" id="Os9-kU-Flc"/>
                         <outlet property="tableviewHeight" destination="wGT-nw-pmb" id="2Kg-HK-tsM"/>
+                        <outlet property="temperatureButton" destination="a4E-W2-yle" id="Ddh-Kv-5fN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -12,14 +12,27 @@ class LocationListVC: UIViewController {
     public static let identifier = "LocationListVC"
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var tableviewHeight: NSLayoutConstraint!
+    @IBOutlet weak var temperatureButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setButtonUI()
         tableview.delegate = self
         tableview.dataSource = self
         tableview.contentInsetAdjustmentBehavior = .never
         tableview.backgroundColor = .black
         tableviewHeight.constant = 100 + 70*4
+    }
+    
+    func setButtonUI(){
+        let attributedStr = NSMutableAttributedString(string: (temperatureButton.titleLabel?.text)!)
+
+        attributedStr.addAttribute(.foregroundColor, value: UIColor.white, range: ((temperatureButton.titleLabel?.text)! as NSString).range(of: "ºC"))
+        attributedStr.addAttribute(.foregroundColor, value: UIColor.gray, range: ((temperatureButton.titleLabel?.text)! as NSString).range(of: "/ ºF"))
+
+        temperatureButton.setAttributedTitle(attributedStr, for: .normal)
+        
+        
     }
 
 
