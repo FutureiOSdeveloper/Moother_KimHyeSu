@@ -47,9 +47,8 @@ class LocationListVC: UIViewController {
     @IBAction func temperatureButtonClicked(_ sender: Any) {
         
         setButtonUI(selected: select)
-        
-        
-        
+        tableview.reloadData()
+
     }
     
 }
@@ -83,6 +82,7 @@ extension LocationListVC : UITableViewDataSource {
             guard let cell = tableview.dequeueReusableCell(withIdentifier: LocationListTVC.identifier, for: indexPath) as? LocationListTVC else {
                 return UITableViewCell()
             }
+            cell.setData(time: "오전 12:30", location: "용산구", temperature: 27, celsius: !select)
             return cell
         }
         

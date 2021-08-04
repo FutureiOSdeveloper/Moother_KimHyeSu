@@ -27,10 +27,16 @@ class LocationListTVC: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setData(time: String, location: String, temperature: Int){
+    func setData(time: String, location: String, temperature: Int, celsius: Bool){
         timeLabel.text = time
         locationLabel.text = location
-        temperatureLabel.text = "\(temperature)º"
+        if celsius == true {
+            temperatureLabel.text = "\(temperature)º"
+        }
+        else {
+            temperatureLabel.text = "\(temperature+32)º"
+            print(temperature+32)
+        }
     }
     
 }
