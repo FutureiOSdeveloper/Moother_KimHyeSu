@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -33,6 +33,10 @@
 		15BFA57A26B98D3600E03823 /* LocationListTopTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BFA57926B98D3600E03823 /* LocationListTopTVC.swift */; };
 		15BFA57D26BAE84800E03823 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15BFA57C26BAE84800E03823 /* Search.storyboard */; };
 		15BFA57F26BAE85D00E03823 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BFA57E26BAE85D00E03823 /* SearchVC.swift */; };
+		15BFA5CB26BC86E500E03823 /* 4796-weather-cloudynight.json in Resources */ = {isa = PBXBuildFile; fileRef = 15BFA5C726BC86E500E03823 /* 4796-weather-cloudynight.json */; };
+		15BFA5CC26BC86E500E03823 /* 4803-weather-storm.json in Resources */ = {isa = PBXBuildFile; fileRef = 15BFA5C826BC86E500E03823 /* 4803-weather-storm.json */; };
+		15BFA5CD26BC86E500E03823 /* 4800-weather-partly-cloudy.json in Resources */ = {isa = PBXBuildFile; fileRef = 15BFA5C926BC86E500E03823 /* 4800-weather-partly-cloudy.json */; };
+		15BFA5CE26BC86E500E03823 /* 4801-weather-partly-shower.json in Resources */ = {isa = PBXBuildFile; fileRef = 15BFA5CA26BC86E500E03823 /* 4801-weather-partly-shower.json */; };
 		15D0517A26AC562A0012BC74 /* WeatherDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15D0517926AC562A0012BC74 /* WeatherDetail.storyboard */; };
 		15D0517C26AC563C0012BC74 /* WeatherDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D0517B26AC563C0012BC74 /* WeatherDetailVC.swift */; };
 		1FC22D497C3EA10CB539F3C2 /* Pods_AppleWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12BB3FAAB1825A1A50D7E8E5 /* Pods_AppleWeather.framework */; };
@@ -68,6 +72,10 @@
 		15BFA57926B98D3600E03823 /* LocationListTopTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListTopTVC.swift; sourceTree = "<group>"; };
 		15BFA57C26BAE84800E03823 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		15BFA57E26BAE85D00E03823 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		15BFA5C726BC86E500E03823 /* 4796-weather-cloudynight.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "4796-weather-cloudynight.json"; sourceTree = "<group>"; };
+		15BFA5C826BC86E500E03823 /* 4803-weather-storm.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "4803-weather-storm.json"; sourceTree = "<group>"; };
+		15BFA5C926BC86E500E03823 /* 4800-weather-partly-cloudy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "4800-weather-partly-cloudy.json"; sourceTree = "<group>"; };
+		15BFA5CA26BC86E500E03823 /* 4801-weather-partly-shower.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "4801-weather-partly-shower.json"; sourceTree = "<group>"; };
 		15D0517926AC562A0012BC74 /* WeatherDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WeatherDetail.storyboard; sourceTree = "<group>"; };
 		15D0517B26AC563C0012BC74 /* WeatherDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailVC.swift; sourceTree = "<group>"; };
 		80068C2696661EF2BD127657 /* Pods-AppleWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleWeather.release.xcconfig"; path = "Target Support Files/Pods-AppleWeather/Pods-AppleWeather.release.xcconfig"; sourceTree = "<group>"; };
@@ -107,6 +115,7 @@
 		151175D726ABE89600FD4077 /* AppleWeather */ = {
 			isa = PBXGroup;
 			children = (
+				15BFA5C526BC86AF00E03823 /* Resource */,
 				151175ED26ABEA2000FD4077 /* Configuration */,
 				151175EC26ABE90C00FD4077 /* Sources */,
 				151175D826ABE89600FD4077 /* AppDelegate.swift */,
@@ -194,6 +203,25 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		15BFA5C526BC86AF00E03823 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				15BFA5C626BC86B800E03823 /* Lottie */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		15BFA5C626BC86B800E03823 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				15BFA5C726BC86E500E03823 /* 4796-weather-cloudynight.json */,
+				15BFA5C926BC86E500E03823 /* 4800-weather-partly-cloudy.json */,
+				15BFA5CA26BC86E500E03823 /* 4801-weather-partly-shower.json */,
+				15BFA5C826BC86E500E03823 /* 4803-weather-storm.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
 		15D0517826AC560C0012BC74 /* WeatherDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,7 +238,6 @@
 				88D7C4AE6E8F8E86F7747C7C /* Pods-AppleWeather.debug.xcconfig */,
 				80068C2696661EF2BD127657 /* Pods-AppleWeather.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -287,9 +314,13 @@
 				15B2436426B1E44700301D23 /* TodayTVC.xib in Resources */,
 				151175E226ABE89900FD4077 /* Assets.xcassets in Resources */,
 				15D0517A26AC562A0012BC74 /* WeatherDetail.storyboard in Resources */,
+				15BFA5CD26BC86E500E03823 /* 4800-weather-partly-cloudy.json in Resources */,
+				15BFA5CC26BC86E500E03823 /* 4803-weather-storm.json in Resources */,
 				15B2436826B1E77500301D23 /* TodayDetailTVC.xib in Resources */,
 				15B2436C26B1E9EB00301D23 /* TodayDetailCVC.xib in Resources */,
 				15B2437026B2E05600301D23 /* BottomTVC.xib in Resources */,
+				15BFA5CE26BC86E500E03823 /* 4801-weather-partly-shower.json in Resources */,
+				15BFA5CB26BC86E500E03823 /* 4796-weather-cloudynight.json in Resources */,
 				151175E026ABE89600FD4077 /* Main.storyboard in Resources */,
 				15B2435C26B1C49600301D23 /* HeaderCVC.xib in Resources */,
 				15BFA57026B68E5F00E03823 /* LocationList.storyboard in Resources */,

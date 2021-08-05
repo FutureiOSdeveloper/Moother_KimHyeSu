@@ -22,6 +22,9 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wg6-f1-h94">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                         <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i0r-Ad-woD">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                            </view>
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1j4-da-yMC">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                                 <subviews>
@@ -38,16 +41,20 @@
                                             </scrollView>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="i0r-Ad-woD" secondAttribute="bottom" id="JfY-OK-GnF"/>
+                                            <constraint firstItem="i0r-Ad-woD" firstAttribute="leading" secondItem="wg6-f1-h94" secondAttribute="leading" id="PTn-wV-VQO"/>
                                             <constraint firstAttribute="bottom" secondItem="1j4-da-yMC" secondAttribute="bottom" id="VoF-j1-4kA"/>
+                                            <constraint firstAttribute="trailing" secondItem="i0r-Ad-woD" secondAttribute="trailing" id="eXd-2a-EtB"/>
                                             <constraint firstAttribute="trailing" secondItem="1j4-da-yMC" secondAttribute="trailing" id="fmC-Kj-f3V"/>
                                             <constraint firstItem="eqU-zp-3Mm" firstAttribute="height" secondItem="wg6-f1-h94" secondAttribute="height" id="igb-OL-GH8"/>
+                                            <constraint firstItem="i0r-Ad-woD" firstAttribute="top" secondItem="wg6-f1-h94" secondAttribute="top" id="k4C-04-Noc"/>
                                             <constraint firstItem="eqU-zp-3Mm" firstAttribute="width" secondItem="wg6-f1-h94" secondAttribute="width" priority="250" id="kV2-4S-MFz"/>
                                             <constraint firstItem="1j4-da-yMC" firstAttribute="top" secondItem="wg6-f1-h94" secondAttribute="top" id="ngx-Gg-lJU"/>
                                             <constraint firstItem="1j4-da-yMC" firstAttribute="leading" secondItem="wg6-f1-h94" secondAttribute="leading" id="yNZ-T3-wkt"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="wg6-f1-h94" secondAttribute="trailing" id="1W5-al-ITt"/>
                                     <constraint firstItem="wg6-f1-h94" firstAttribute="leading" secondItem="VaW-6D-nO3" secondAttribute="leading" id="9AT-1J-BeY"/>
@@ -99,6 +106,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bgLottieView" destination="i0r-Ad-woD" id="Dd0-t5-otO"/>
+                        <outlet property="bgView" destination="VaW-6D-nO3" id="C7i-2Z-ZbI"/>
                         <outlet property="containView" destination="eqU-zp-3Mm" id="fRN-48-dxi"/>
                         <outlet property="containviewWidth" destination="kV2-4S-MFz" id="VY0-Wy-Ji6"/>
                         <outlet property="pagecontrol" destination="DUb-hz-2eD" id="jkL-FG-mcc"/>
@@ -114,6 +123,9 @@
         <image name="list.bullet" catalog="system" width="128" height="88"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

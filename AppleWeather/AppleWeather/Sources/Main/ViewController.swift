@@ -6,13 +6,27 @@
 //
 
 import UIKit
+import Lottie
 
 class ViewController: UIViewController {
     
     var cityList : [String] = []
     var vcList : [UIViewController] = []
     
+    lazy var lottieView : AnimationView = {
+            let animationView = AnimationView(name: "4800-weather-partly-cloudy")
+            animationView.frame = CGRect(x: 0, y: 0, width: 230, height: 230)
+        animationView.center.x = self.view.center.x
+        animationView.center.y = self.view.center.y - 100
+            animationView.contentMode = .scaleAspectFill
+            animationView.play()
+            animationView.isHidden = false
+            return animationView
+        }()
+    
 
+    @IBOutlet weak var bgLottieView: UIView!
+    @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var containviewWidth: NSLayoutConstraint!
     @IBOutlet weak var scrollview: UIScrollView!
     @IBOutlet weak var pagecontrol: UIPageControl!
@@ -22,6 +36,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var scrollcontentsview: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.bgLottieView.addSubview(lottieView)
         print("메인")
         setDummy()
         setScrollviewUI()
