@@ -20,6 +20,12 @@ class SearchVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func cancelButtonClicked(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+    
+    }
+    
     func setSearchBarUI(){
         searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: UIBarMetrics.default)
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
