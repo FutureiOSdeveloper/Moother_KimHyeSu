@@ -7,11 +7,17 @@
 
 import UIKit
 import Lottie
+import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
     
     var cityList : [String] = []
     var vcList : [UIViewController] = []
+    
+    
+    var locationManager: CLLocationManager = CLLocationManager()
+    var latitude: Double? // 위도
+    var longtitude: Double?// 경도
     
     lazy var lottieView : AnimationView = {
             let animationView = AnimationView(name: "4800-weather-partly-cloudy")
@@ -39,10 +45,42 @@ class ViewController: UIViewController {
         self.bgLottieView.addSubview(lottieView)
         print("메인")
         setDummy()
+        getLocation()
         setScrollviewUI()
         setupPageControl()
         
         NotificationCenter.default.addObserver(self, selector: #selector(pageChange), name: Notification.Name("noti1"), object: nil)
+    }
+    
+    func getLocation(){
+        // LocationManager 인스턴스 생성
+        //locationManager = CLLocationManager()
+        
+        // 델리게이트 생성
+        locationManager.delegate = self
+        
+        // 포그라운드 상태에서 위치추적 권한 요청
+        locationManager.requestWhenInUseAuthorization()
+        
+        // 배터리에 맞게 권장되는 최적의 정확도
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+            
+            // 위도와 경도 가져오기
+            let location = locationManager.location?.coordinate
+            // 위도와 경도 저장
+            latitude = location?.latitude ?? 0
+            longtitude = location?.longitude ?? 0
+            
+            print("위도: \(latitude), 경도: \(longtitude)")
+        }
+        // 위치 업데이트
+        
+        
+        
+        //textLabel.text = "위도: \(latitude), 경도: \(longtitude)"
     }
     
     func setScrollviewUI(){

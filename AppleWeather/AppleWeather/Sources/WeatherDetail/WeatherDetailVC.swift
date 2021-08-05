@@ -6,13 +6,16 @@
 //
 
 import UIKit
+import CoreLocation
 
 class WeatherDetailVC: UIViewController {
     
     public static let identifier = "WeatherDetailVC"
     
     //let headerview = UIView()
-
+    
+    
+    
     @IBOutlet weak var topviewHeight: NSLayoutConstraint!
     @IBOutlet weak var cityLabelTop: NSLayoutConstraint!
     
@@ -31,10 +34,11 @@ class WeatherDetailVC: UIViewController {
         tableview.dataSource = self
         
         print(labelTop.constant)
+        //getLocation()
         
         let snib = UINib(nibName: "HeaderTVC", bundle: nil)
         tableview.register(snib, forCellReuseIdentifier: "HeaderTVC")
-                
+        
         let daysnib = UINib(nibName: DaysTVC.identifier, bundle: nil)
         tableview.register(daysnib, forCellReuseIdentifier: DaysTVC.identifier)
         
@@ -48,7 +52,11 @@ class WeatherDetailVC: UIViewController {
         tableview.register(bottomNib, forCellReuseIdentifier: BottomTVC.identifier)
         
     }
+    
+    
 }
+
+
 
 extension WeatherDetailVC: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -91,19 +99,19 @@ extension WeatherDetailVC: UIScrollViewDelegate {
 extension WeatherDetailVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch section {
-                case 0:
-                    let view = UIView()
-                    view.backgroundColor = .none
-                    return view
-                case 1:
-                    
-                    guard let headercell = tableView.dequeueReusableCell(withIdentifier: "HeaderTVC") as? HeaderTVC else { return UITableViewCell() }
-                    //headerview.addSubview(headercell)
-                    return headercell
-                
-                default:
-                    return UIView()
-                }
+        case 0:
+            let view = UIView()
+            view.backgroundColor = .none
+            return view
+        case 1:
+            
+            guard let headercell = tableView.dequeueReusableCell(withIdentifier: "HeaderTVC") as? HeaderTVC else { return UITableViewCell() }
+            //headerview.addSubview(headercell)
+            return headercell
+            
+        default:
+            return UIView()
+        }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -117,7 +125,7 @@ extension WeatherDetailVC: UITableViewDataSource {
         return 2
     }
     
-
+    
     
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
