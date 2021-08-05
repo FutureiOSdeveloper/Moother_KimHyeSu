@@ -51,6 +51,12 @@ class LocationListVC: UIViewController {
 
     }
     
+    @IBAction func searchButtonClicked(_ sender: Any) {
+        let sb = UIStoryboard(name: "Search", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: SearchVC.identifier) as? SearchVC else { return }
+        
+        self.present(vc, animated: true, completion: nil)
+    }
 }
 
 extension LocationListVC : UITableViewDelegate {

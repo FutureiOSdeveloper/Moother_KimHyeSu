@@ -97,7 +97,8 @@ class ViewController: UIViewController {
         guard let vc = sb.instantiateViewController(withIdentifier: LocationListVC.identifier) as? LocationListVC else {
             return
         }
-        vc.modalPresentationStyle = .fullScreen
+        //vc.modalPresentationStyle = .fullScreen
+        vc.modalPresentationStyle = .overCurrentContext
         self.present(vc, animated: true, completion: nil)
     }
 }
