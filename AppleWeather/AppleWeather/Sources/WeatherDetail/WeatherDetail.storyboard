@@ -63,6 +63,7 @@
                     </view>
                     <connections>
                         <outlet property="labelTop" destination="HSN-Lw-wga" id="mvm-AB-AzG"/>
+                        <outlet property="locationLabel" destination="y7m-og-I14" id="8y9-2d-Gtw"/>
                         <outlet property="tableview" destination="hfe-O4-zMN" id="k6q-xv-jAQ"/>
                         <outlet property="temperatureLabel" destination="xiC-Fs-aL7" id="Prx-9H-gY3"/>
                     </connections>

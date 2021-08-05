@@ -11,9 +11,10 @@ import CoreLocation
 class WeatherDetailVC: UIViewController {
     
     public static let identifier = "WeatherDetailVC"
-    
+    public static var nowLocationName : String = "기본"
     //let headerview = UIView()
     
+    @IBOutlet weak var locationLabel: UILabel!
     
     
     @IBOutlet weak var topviewHeight: NSLayoutConstraint!
@@ -32,7 +33,8 @@ class WeatherDetailVC: UIViewController {
         tableview.backgroundColor = .none
         tableview.delegate = self
         tableview.dataSource = self
-        
+        locationLabel.text = "아놔"
+        //print(WeatherDetailVC.nowLocationName)
         print(labelTop.constant)
         //getLocation()
         

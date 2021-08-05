@@ -11,13 +11,18 @@ import CoreLocation
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
+    
+    
     var cityList : [String] = []
     var vcList : [UIViewController] = []
     
     
     var locationManager: CLLocationManager = CLLocationManager()
     var latitude: Double? // 위도
-    var longtitude: Double?// 경도
+    var longitude: Double?// 경도
+    
+    public static var nowLocation = CLLocation(latitude: 0, longitude: 0)
+    var locationName : String?
     
     lazy var lottieView : AnimationView = {
             let animationView = AnimationView(name: "4800-weather-partly-cloudy")
@@ -46,7 +51,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         print("메인")
         setDummy()
         getLocation()
-        setScrollviewUI()
+        
         setupPageControl()
         
         NotificationCenter.default.addObserver(self, selector: #selector(pageChange), name: Notification.Name("noti1"), object: nil)
@@ -71,39 +76,57 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             // 위도와 경도 가져오기
             let location = locationManager.location?.coordinate
             // 위도와 경도 저장
-            latitude = location?.latitude ?? 0
-            longtitude = location?.longitude ?? 0
+            latitude = location?.latitude ?? 50
+            longitude = location?.longitude ?? 50
             
-            print("위도: \(latitude), 경도: \(longtitude)")
-        }
+            //print("위도: \(latitude), 경도: \(longitude)")
+            
+            ViewController.nowLocation = CLLocation(latitude: latitude!, longitude: longitude!)
+            print(ViewController.nowLocation)
+            
+            let geocoder = CLGeocoder()
+            let locale = Locale(identifier: "Ko-kr")
+            geocoder.reverseGeocodeLocation(ViewController.nowLocation, preferredLocale: locale, completionHandler: {(placemarks, error) in if let address: [CLPlacemark] = placemarks { if let name: String = address.last?.name { print(name)
+                //WeatherDetailVC.nowLocationName = name
+                self.locationName = name
+                self.cityList[0] = name
+                self.setScrollviewUI()
+            } //전체 주소
+            }
+            })
+            
+            //setScrollviewUI()
+        }}
         // 위치 업데이트
         
         
         
         //textLabel.text = "위도: \(latitude), 경도: \(longtitude)"
-    }
+    
+    
     
     func setScrollviewUI(){
         scrollview.delegate = self
-        
-        
-        
+
         for index in 0..<cityList.count {
             
             
             let containerView = UIView()
             let sb = UIStoryboard(name: "WeatherDetail", bundle: nil)
             
-            guard let vc = sb.instantiateViewController(withIdentifier: WeatherDetailVC.identifier) as? WeatherDetailVC
+            if let vc = sb.instantiateViewController(withIdentifier: WeatherDetailVC.identifier) as? WeatherDetailVC {
+                //vc.locationLabel.text = cityList[index]
+                containerView.frame = UIScreen.main.bounds
+                containerView.frame.origin.x = UIScreen.main.bounds.width * CGFloat(index)
+                containView.addSubview(containerView)
+                containerView.addSubview(vc.view)
+                vc.locationLabel.text = cityList[index]
+                //vc.scroll.delegate = self
+                vcList.append(vc)
+            }
             else { return }
- 
-            containerView.frame = UIScreen.main.bounds
-            containerView.frame.origin.x = UIScreen.main.bounds.width * CGFloat(index)
-            containView.addSubview(containerView)
-            containerView.addSubview(vc.view)
+            //vc.locationLabel.text = locationName
             
-            //vc.scroll.delegate = self
-            vcList.append(vc)
         }
         
         containviewWidth.constant = UIScreen.main.bounds.width * CGFloat(cityList.count)
@@ -119,7 +142,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func setDummy(){
-        cityList.append(contentsOf: ["서울", "부산", "마포구", "용산구", "수원시"])
+        cityList.append(contentsOf: ["현재위치", "부산", "마포구", "용산구", "수원시"])
 
     }
     
