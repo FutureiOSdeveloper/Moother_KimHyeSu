@@ -10,6 +10,8 @@ import UIKit
 class WeatherDetailVC: UIViewController {
     
     public static let identifier = "WeatherDetailVC"
+    
+    //let headerview = UIView()
 
     @IBOutlet weak var topviewHeight: NSLayoutConstraint!
     @IBOutlet weak var cityLabelTop: NSLayoutConstraint!
@@ -73,6 +75,16 @@ extension WeatherDetailVC: UIScrollViewDelegate {
             labelTop.constant = 80
             temperatureLabel.alpha = 1
         }
+        
+        for cell in tableview.visibleCells {
+            let paddingToDisappear = CGFloat(200)
+            let hiddenFrameHeight = scrollView.contentOffset.y + paddingToDisappear - cell.frame.origin.y
+            if (hiddenFrameHeight >= 0 || hiddenFrameHeight <= cell.frame.size.height) {
+                if let customCell = cell as? DaysTVC {
+                    customCell.maskCell(fromTop: hiddenFrameHeight)
+                }
+            }
+        }
     }
 }
 
@@ -84,10 +96,10 @@ extension WeatherDetailVC: UITableViewDelegate {
                     view.backgroundColor = .none
                     return view
                 case 1:
-                    let headerview = UIView()
-                    guard let headercell = tableView.dequeueReusableCell(withIdentifier: "HeaderTVC") as? HeaderTVC else { return UIView() }
-                    headerview.addSubview(headercell)
-                    return headerview
+                    
+                    guard let headercell = tableView.dequeueReusableCell(withIdentifier: "HeaderTVC") as? HeaderTVC else { return UITableViewCell() }
+                    //headerview.addSubview(headercell)
+                    return headercell
                 
                 default:
                     return UIView()
