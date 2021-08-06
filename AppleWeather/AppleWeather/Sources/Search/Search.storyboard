@@ -55,14 +55,48 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W1o-Ka-vcR">
                                 <rect key="frame" x="0.0" y="144" width="414" height="752"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5QZ-oH-N5i">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bOb-NC-rCJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="752"/>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5QZ-oH-N5i">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="752"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="SearchTVC" id="jdK-Vw-erb" customClass="SearchTVC" customModule="AppleWeather" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="24.5" width="414" height="41"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jdK-Vw-erb" id="waO-zh-pRi">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="41"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZC-KC-aU8">
+                                                            <rect key="frame" x="30" y="10" width="354" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="TZC-KC-aU8" firstAttribute="leading" secondItem="waO-zh-pRi" secondAttribute="leading" constant="30" id="NBC-Gp-iJh"/>
+                                                        <constraint firstItem="TZC-KC-aU8" firstAttribute="top" secondItem="waO-zh-pRi" secondAttribute="top" constant="10" id="TQU-1N-maG"/>
+                                                        <constraint firstAttribute="bottom" secondItem="TZC-KC-aU8" secondAttribute="bottom" constant="10" id="WMy-GV-gTY"/>
+                                                        <constraint firstAttribute="trailing" secondItem="TZC-KC-aU8" secondAttribute="trailing" constant="30" id="yoi-pr-huq"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="titleLabel" destination="TZC-KC-aU8" id="CNT-wD-XU3"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
                                     </tableView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="bOb-NC-rCJ" firstAttribute="top" secondItem="W1o-Ka-vcR" secondAttribute="top" id="41A-40-9Ww"/>
+                                    <constraint firstAttribute="bottom" secondItem="bOb-NC-rCJ" secondAttribute="bottom" id="5Sc-uC-Xdw"/>
+                                    <constraint firstAttribute="trailing" secondItem="bOb-NC-rCJ" secondAttribute="trailing" id="8yg-Uv-w2m"/>
                                     <constraint firstItem="5QZ-oH-N5i" firstAttribute="top" secondItem="W1o-Ka-vcR" secondAttribute="top" id="hwU-mR-bJk"/>
                                     <constraint firstItem="5QZ-oH-N5i" firstAttribute="leading" secondItem="W1o-Ka-vcR" secondAttribute="leading" id="jUq-Wh-CS6"/>
+                                    <constraint firstItem="bOb-NC-rCJ" firstAttribute="leading" secondItem="W1o-Ka-vcR" secondAttribute="leading" id="jYs-Q4-hOc"/>
                                     <constraint firstAttribute="trailing" secondItem="5QZ-oH-N5i" secondAttribute="trailing" id="rLX-W1-Zz8"/>
                                     <constraint firstAttribute="bottom" secondItem="5QZ-oH-N5i" secondAttribute="bottom" id="wgd-L8-lee"/>
                                 </constraints>
@@ -81,7 +115,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bgview" destination="W1o-Ka-vcR" id="0RF-k8-T7m"/>
+                        <outlet property="bgview" destination="bOb-NC-rCJ" id="5Kr-Px-9Pc"/>
                         <outlet property="searchBar" destination="7wD-E9-GTf" id="u8N-3z-sCs"/>
                         <outlet property="tableview" destination="5QZ-oH-N5i" id="eC3-vW-ZwN"/>
                     </connections>
