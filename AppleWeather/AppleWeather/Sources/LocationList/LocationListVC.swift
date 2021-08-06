@@ -15,6 +15,7 @@ class LocationListVC: UIViewController {
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var tableviewHeight: NSLayoutConstraint!
     @IBOutlet weak var temperatureButton: UIButton!
+    @IBOutlet weak var footerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,9 @@ class LocationListVC: UIViewController {
         tableview.dataSource = self
         tableview.contentInsetAdjustmentBehavior = .never
         tableview.backgroundColor = .black
-        tableviewHeight.constant = 100 + 70*4
+        //tableviewHeight.constant = 100 + 70*4 + 70
+        
+        tableview.tableFooterView = footerView
     }
     
     func setButtonUI(selected : Bool){
@@ -67,6 +70,8 @@ extension LocationListVC : UITableViewDelegate {
             NotificationCenter.default.post(name: NSNotification.Name("noti1"), object: indexPath.row)
         }
     }
+    
+    
     
 }
 

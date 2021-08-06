@@ -17,14 +17,48 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xq2-J5-Glv">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="796"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RF0-cb-hqq">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="796"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="796" id="wGT-nw-pmb"/>
-                                        </constraints>
+                                        <view key="tableFooterView" contentMode="scaleToFill" id="tYO-OR-e3z">
+                                            <rect key="frame" x="0.0" y="192.00000034679067" width="414" height="70"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4E-W2-yle">
+                                                    <rect key="frame" x="17" y="19" width="50" height="33"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <state key="normal" title="ºC / ºF"/>
+                                                    <connections>
+                                                        <action selector="temperatureButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="VHl-ar-JD7"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLc-ok-cpZ">
+                                                    <rect key="frame" x="195" y="22.5" width="24" height="26"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" image="terminal.fill" catalog="system"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRE-HP-KaO">
+                                                    <rect key="frame" x="372" y="24.5" width="20" height="22"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" image="magnifyingglass" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="searchButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ZHR-J8-qqZ"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="a4E-W2-yle" firstAttribute="top" secondItem="tYO-OR-e3z" secondAttribute="top" constant="19" id="CKS-vK-K5j"/>
+                                                <constraint firstItem="ZLc-ok-cpZ" firstAttribute="centerY" secondItem="a4E-W2-yle" secondAttribute="centerY" id="KCe-MW-Xsr"/>
+                                                <constraint firstItem="gRE-HP-KaO" firstAttribute="centerY" secondItem="a4E-W2-yle" secondAttribute="centerY" id="QjM-Jq-cua"/>
+                                                <constraint firstItem="ZLc-ok-cpZ" firstAttribute="centerX" secondItem="tYO-OR-e3z" secondAttribute="centerX" id="eHd-jQ-pXE"/>
+                                                <constraint firstAttribute="trailing" secondItem="gRE-HP-KaO" secondAttribute="trailing" constant="22" id="f5T-ql-HRM"/>
+                                                <constraint firstItem="a4E-W2-yle" firstAttribute="leading" secondItem="tYO-OR-e3z" secondAttribute="leading" constant="17" id="fKj-7q-Uc8"/>
+                                            </constraints>
+                                        </view>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationListTopTVC" rowHeight="73" id="aWT-kR-zOw" customClass="LocationListTopTVC" customModule="AppleWeather" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="24.5" width="414" height="73"/>
@@ -94,63 +128,25 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="RF0-cb-hqq" secondAttribute="trailing" id="BYt-xs-vPg"/>
-                                    <constraint firstAttribute="bottom" secondItem="RF0-cb-hqq" secondAttribute="bottom" id="RRO-v0-miw"/>
-                                    <constraint firstItem="RF0-cb-hqq" firstAttribute="leading" secondItem="Xq2-J5-Glv" secondAttribute="leading" id="Zlg-LJ-jsa"/>
-                                    <constraint firstItem="RF0-cb-hqq" firstAttribute="top" secondItem="Xq2-J5-Glv" secondAttribute="top" id="e8D-jO-HKJ"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="upX-Zo-lWJ">
-                                <rect key="frame" x="0.0" y="796" width="414" height="100"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4E-W2-yle">
-                                        <rect key="frame" x="17" y="15" width="50" height="33"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <state key="normal" title="ºC / ºF"/>
-                                        <connections>
-                                            <action selector="temperatureButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="VHl-ar-JD7"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLc-ok-cpZ">
-                                        <rect key="frame" x="195" y="21" width="24" height="26"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="terminal.fill" catalog="system"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRE-HP-KaO">
-                                        <rect key="frame" x="377" y="20.5" width="20" height="22"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="magnifyingglass" catalog="system"/>
-                                        <connections>
-                                            <action selector="searchButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ZHR-J8-qqZ"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="labelColor"/>
-                                <constraints>
-                                    <constraint firstItem="gRE-HP-KaO" firstAttribute="centerY" secondItem="a4E-W2-yle" secondAttribute="centerY" id="0Na-gI-fA5"/>
-                                    <constraint firstItem="a4E-W2-yle" firstAttribute="top" secondItem="upX-Zo-lWJ" secondAttribute="top" constant="15" id="Hh9-QP-ZHW"/>
-                                    <constraint firstItem="a4E-W2-yle" firstAttribute="leading" secondItem="upX-Zo-lWJ" secondAttribute="leading" constant="17" id="JRz-wb-NEP"/>
-                                    <constraint firstAttribute="trailing" secondItem="gRE-HP-KaO" secondAttribute="trailing" constant="17" id="xti-c3-r6c"/>
+                                    <constraint firstAttribute="bottom" secondItem="RF0-cb-hqq" secondAttribute="bottom" id="RlC-OH-YSk"/>
+                                    <constraint firstItem="RF0-cb-hqq" firstAttribute="top" secondItem="Xq2-J5-Glv" secondAttribute="top" id="ZJM-Uk-jjh"/>
+                                    <constraint firstItem="RF0-cb-hqq" firstAttribute="leading" secondItem="Xq2-J5-Glv" secondAttribute="leading" id="m0N-ee-fKN"/>
+                                    <constraint firstAttribute="trailing" secondItem="RF0-cb-hqq" secondAttribute="trailing" id="pi5-QC-qHs"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="upX-Zo-lWJ" firstAttribute="top" secondItem="Xq2-J5-Glv" secondAttribute="bottom" id="4Bj-J8-JiK"/>
                             <constraint firstItem="Xq2-J5-Glv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="DIg-JZ-DWm"/>
-                            <constraint firstItem="upX-Zo-lWJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="O6o-yb-avh"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="upX-Zo-lWJ" secondAttribute="trailing" id="R4P-IG-PP9"/>
-                            <constraint firstAttribute="bottom" secondItem="upX-Zo-lWJ" secondAttribute="bottom" id="Y6t-VU-DYG"/>
+                            <constraint firstAttribute="bottom" secondItem="Xq2-J5-Glv" secondAttribute="bottom" id="Eui-vf-rtn"/>
                             <constraint firstItem="Xq2-J5-Glv" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="l0J-sb-Tf2"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Xq2-J5-Glv" secondAttribute="trailing" id="oph-Cd-gN1"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="footerView" destination="tYO-OR-e3z" id="c0y-k7-iLA"/>
                         <outlet property="tableview" destination="RF0-cb-hqq" id="Os9-kU-Flc"/>
-                        <outlet property="tableviewHeight" destination="wGT-nw-pmb" id="2Kg-HK-tsM"/>
                         <outlet property="temperatureButton" destination="a4E-W2-yle" id="Ddh-Kv-5fN"/>
                     </connections>
                 </viewController>
@@ -162,9 +158,6 @@
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="terminal.fill" catalog="system" width="128" height="93"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
