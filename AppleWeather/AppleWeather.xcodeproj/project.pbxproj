@@ -30,7 +30,6 @@
 		15BFA57026B68E5F00E03823 /* LocationList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15BFA56F26B68E5F00E03823 /* LocationList.storyboard */; };
 		15BFA57326B68E9400E03823 /* LocationListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BFA57226B68E9400E03823 /* LocationListVC.swift */; };
 		15BFA57726B68F5B00E03823 /* LocationListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BFA57526B68F5B00E03823 /* LocationListTVC.swift */; };
-		15BFA57A26B98D3600E03823 /* LocationListTopTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BFA57926B98D3600E03823 /* LocationListTopTVC.swift */; };
 		15BFA57D26BAE84800E03823 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15BFA57C26BAE84800E03823 /* Search.storyboard */; };
 		15BFA57F26BAE85D00E03823 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BFA57E26BAE85D00E03823 /* SearchVC.swift */; };
 		15BFA5CB26BC86E500E03823 /* 4796-weather-cloudynight.json in Resources */ = {isa = PBXBuildFile; fileRef = 15BFA5C726BC86E500E03823 /* 4796-weather-cloudynight.json */; };
@@ -69,7 +68,6 @@
 		15BFA56F26B68E5F00E03823 /* LocationList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LocationList.storyboard; sourceTree = "<group>"; };
 		15BFA57226B68E9400E03823 /* LocationListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListVC.swift; sourceTree = "<group>"; };
 		15BFA57526B68F5B00E03823 /* LocationListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListTVC.swift; sourceTree = "<group>"; };
-		15BFA57926B98D3600E03823 /* LocationListTopTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListTopTVC.swift; sourceTree = "<group>"; };
 		15BFA57C26BAE84800E03823 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		15BFA57E26BAE85D00E03823 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		15BFA5C726BC86E500E03823 /* 4796-weather-cloudynight.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "4796-weather-cloudynight.json"; sourceTree = "<group>"; };
@@ -188,7 +186,6 @@
 		15BFA57426B68F3900E03823 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				15BFA57926B98D3600E03823 /* LocationListTopTVC.swift */,
 				15BFA57526B68F5B00E03823 /* LocationListTVC.swift */,
 			);
 			path = Cell;
@@ -379,7 +376,6 @@
 			files = (
 				15D0517C26AC563C0012BC74 /* WeatherDetailVC.swift in Sources */,
 				15B2435F26B1CFF000301D23 /* DaysTVC.swift in Sources */,
-				15BFA57A26B98D3600E03823 /* LocationListTopTVC.swift in Sources */,
 				15B2435626B1BFA800301D23 /* HeaderTVC.swift in Sources */,
 				15BFA57726B68F5B00E03823 /* LocationListTVC.swift in Sources */,
 				151175DD26ABE89600FD4077 /* ViewController.swift in Sources */,

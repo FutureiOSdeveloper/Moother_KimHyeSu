@@ -23,7 +23,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <view key="tableFooterView" contentMode="scaleToFill" id="tYO-OR-e3z">
-                                            <rect key="frame" x="0.0" y="192.00000034679067" width="414" height="70"/>
+                                            <rect key="frame" x="0.0" y="119.00000034679067" width="414" height="70"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4E-W2-yle">
@@ -60,17 +60,8 @@
                                             </constraints>
                                         </view>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationListTopTVC" rowHeight="73" id="aWT-kR-zOw" customClass="LocationListTopTVC" customModule="AppleWeather" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="24.5" width="414" height="73"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aWT-kR-zOw" id="i51-JI-ApK">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="73"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </tableViewCellContentView>
-                                            </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationListTVC" rowHeight="70" id="rgs-ey-cNr" customClass="LocationListTVC" customModule="AppleWeather" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="97.5" width="414" height="70"/>
+                                                <rect key="frame" x="0.0" y="24.5" width="414" height="70"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rgs-ey-cNr" id="qml-hm-hok">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
@@ -92,19 +83,18 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27º" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VzI-R6-B8C">
-                                                                    <rect key="frame" x="344" y="17" width="50" height="36"/>
+                                                                    <rect key="frame" x="344" y="13.5" width="50" height="39.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
-                                                            <color key="backgroundColor" systemColor="systemTealColor"/>
+                                                            <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                                             <constraints>
                                                                 <constraint firstItem="uSa-To-G9u" firstAttribute="leading" secondItem="UhW-AN-YVH" secondAttribute="leading" constant="20" id="CUX-hp-mJR"/>
                                                                 <constraint firstAttribute="bottom" secondItem="Ifo-v0-mRc" secondAttribute="bottom" constant="17" id="EZ2-15-6lW"/>
                                                                 <constraint firstAttribute="bottom" secondItem="VzI-R6-B8C" secondAttribute="bottom" constant="17" id="KYh-ac-7Y9"/>
                                                                 <constraint firstItem="Ifo-v0-mRc" firstAttribute="leading" secondItem="UhW-AN-YVH" secondAttribute="leading" constant="20" id="V90-T9-ChB"/>
-                                                                <constraint firstItem="VzI-R6-B8C" firstAttribute="top" secondItem="UhW-AN-YVH" secondAttribute="top" constant="17" id="hqm-RT-DzG"/>
                                                                 <constraint firstItem="Ifo-v0-mRc" firstAttribute="top" secondItem="uSa-To-G9u" secondAttribute="bottom" constant="5" id="prn-Fh-fS6"/>
                                                                 <constraint firstAttribute="trailing" secondItem="VzI-R6-B8C" secondAttribute="trailing" constant="20" id="yIJ-rL-VRR"/>
                                                             </constraints>
@@ -161,8 +151,8 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemTealColor">
-            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

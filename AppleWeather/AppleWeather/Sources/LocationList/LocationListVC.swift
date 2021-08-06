@@ -82,20 +82,11 @@ extension LocationListVC : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        switch indexPath.row {
-        case 0:
-            guard let cell = tableview.dequeueReusableCell(withIdentifier: LocationListTopTVC.identifier, for: indexPath) as? LocationListTopTVC else {
-                return UITableViewCell()
-            }
-            return cell
-            
-        default:
-            guard let cell = tableview.dequeueReusableCell(withIdentifier: LocationListTVC.identifier, for: indexPath) as? LocationListTVC else {
-                return UITableViewCell()
-            }
-            cell.setData(time: "오전 12:30", location: "용산구", temperature: 27, celsius: !select)
-            return cell
+        guard let cell = tableview.dequeueReusableCell(withIdentifier: LocationListTVC.identifier, for: indexPath) as? LocationListTVC else {
+            return UITableViewCell()
         }
+        cell.setData(time: "오전 12:30", location: "용산구", temperature: 27, celsius: !select)
+        return cell
         
         
     }
@@ -103,7 +94,7 @@ extension LocationListVC : UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            return 100
+            return 120
         default:
             return 70
         }
