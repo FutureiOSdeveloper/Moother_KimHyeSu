@@ -27,18 +27,20 @@ class SearchVC: UIViewController {
         tableview.backgroundColor = .clear
         tableview.delegate = self
         tableview.dataSource = self
-        
+        tableview.keyboardDismissMode = .onDrag
         searchBar.delegate = self
         searchCompleter.delegate = self
         
         
     }
     
+    
     @IBAction func cancelButtonClicked(_ sender: Any) {
         
         self.dismiss(animated: true, completion: nil)
     
     }
+    
     
     func setBlur(){
         let blurEffect = UIBlurEffect(style: .dark)
