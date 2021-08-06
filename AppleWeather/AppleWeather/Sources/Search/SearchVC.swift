@@ -11,12 +11,15 @@ class SearchVC: UIViewController {
     
     public static let identifier = "SearchVC"
 
+    @IBOutlet weak var bgview: UIView!
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
         setSearchBarUI()
-        tableview.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        setBlur()
+        tableview.backgroundColor = .clear
+        //tableview.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
         // Do any additional setup after loading the view.
     }
     
@@ -24,6 +27,14 @@ class SearchVC: UIViewController {
         
         self.dismiss(animated: true, completion: nil)
     
+    }
+    
+    func setBlur(){
+        let blurEffect = UIBlurEffect(style: .dark)
+        let visualEffectView = UIVisualEffectView(effect: blurEffect)
+        visualEffectView.frame = view.frame
+        bgview.addSubview(visualEffectView)
+        //topView.addSubview(visualEffectView)
     }
     
     func setSearchBarUI(){
