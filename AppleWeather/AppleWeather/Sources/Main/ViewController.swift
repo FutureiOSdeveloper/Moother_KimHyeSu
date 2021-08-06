@@ -25,15 +25,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var locationName : String?
     
     lazy var lottieView : AnimationView = {
-            let animationView = AnimationView(name: "4800-weather-partly-cloudy")
-            animationView.frame = CGRect(x: 0, y: 0, width: 230, height: 230)
+        let animationView = AnimationView(name: "4800-weather-partly-cloudy")
+        animationView.frame = CGRect(x: 0, y: 0, width: 230, height: 230)
         animationView.center.x = self.view.center.x
         animationView.center.y = self.view.center.y - 100
-            animationView.contentMode = .scaleAspectFill
-            animationView.play()
-            animationView.isHidden = false
-            return animationView
-        }()
+        animationView.contentMode = .scaleAspectFill
+        animationView.play()
+        animationView.loopMode = .loop
+        animationView.isHidden = false
+        return animationView
+    }()
     
 
     @IBOutlet weak var bgLottieView: UIView!

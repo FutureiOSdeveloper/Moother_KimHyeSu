@@ -131,7 +131,12 @@ extension WeatherDetailVC: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 200
+        switch section {
+        case 0:
+            return 250
+        default:
+            return 200
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -200,7 +205,7 @@ extension WeatherDetailVC: UITableViewDataSource {
             case 8:
                 return 60
             case 9:
-                return 200
+                return 250
             case 10:
                 return 40
             default:

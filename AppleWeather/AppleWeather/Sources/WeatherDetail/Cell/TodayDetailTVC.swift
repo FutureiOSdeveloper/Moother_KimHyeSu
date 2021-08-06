@@ -55,7 +55,7 @@ extension TodayDetailTVC: UICollectionViewDataSource {
 
 extension TodayDetailTVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (UIScreen.main.bounds.width - 40)/2 , height: 40)
+        return CGSize(width: (UIScreen.main.bounds.width - 40)/2 , height: 50)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
