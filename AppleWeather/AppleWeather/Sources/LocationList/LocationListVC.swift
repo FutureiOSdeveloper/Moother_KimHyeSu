@@ -8,6 +8,8 @@
 import UIKit
 
 class LocationListVC: UIViewController {
+    
+    var locationList : [String] = ["현위치", "서울시", "강남구", "마포구", "수원시"]
 
     public static let identifier = "LocationListVC"
     var select : Bool = true
@@ -77,7 +79,7 @@ extension LocationListVC : UITableViewDelegate {
 
 extension LocationListVC : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return locationList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -85,7 +87,7 @@ extension LocationListVC : UITableViewDataSource {
         guard let cell = tableview.dequeueReusableCell(withIdentifier: LocationListTVC.identifier, for: indexPath) as? LocationListTVC else {
             return UITableViewCell()
         }
-        cell.setData(time: "오전 12:30", location: "용산구", temperature: 27, celsius: !select)
+        cell.setData(time: "오전 12:30", location: locationList[indexPath.row], temperature: 27, celsius: !select)
         return cell
         
         
@@ -103,7 +105,17 @@ extension LocationListVC : UITableViewDataSource {
     }
     
     
-    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+            
+            if editingStyle == .delete {
+                
+                locationList.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                
+            } else if editingStyle == .insert {
+                
+            }
+        }
     
     
 }
