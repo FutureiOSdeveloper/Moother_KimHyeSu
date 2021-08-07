@@ -98,6 +98,7 @@ extension SearchVC: UITableViewDelegate {
     
     // 선택된 위치의 정보 가져오기
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "WeatherDetail", bundle: nil)
         let selectedResult = searchResults[indexPath.row]
         let searchRequest = MKLocalSearch.Request(completion: selectedResult)
         
@@ -110,9 +111,16 @@ extension SearchVC: UITableViewDelegate {
                 return
             }
             
+            
             print("가져온 주소", placeMark.coordinate)
             print("나라이름", placeMark.countryCode!)
             print("지역이름", placeMark.title!)
+            print("위도", placeMark.coordinate.latitude)
+            print("경도", placeMark.coordinate.longitude)
+            
+            guard let newVC = sb.instantiateViewController(withIdentifier: WeatherDetailVC.identifier) as? WeatherDetailVC else { return }
+            newVC.view.backgroundColor = .blue
+            self.present(newVC, animated: true, completion: nil)
         }
         
     }
