@@ -17,6 +17,8 @@ class WeatherDetailVC: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     
     
+    @IBOutlet weak var selectView: UIView!
+    
     @IBOutlet weak var topviewHeight: NSLayoutConstraint!
     @IBOutlet weak var cityLabelTop: NSLayoutConstraint!
     
@@ -34,10 +36,22 @@ class WeatherDetailVC: UIViewController {
         tableview.delegate = self
         tableview.dataSource = self
         locationLabel.text = "아놔"
-        //print(WeatherDetailVC.nowLocationName)
-        print(labelTop.constant)
-        //getLocation()
+        selectView.isHidden = true
+        registerXib()
         
+    }
+    
+    
+    @IBAction func selectCancelButtonClicked(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func selectAddButtonClicked(_ sender: Any) {
+        // UserDefaults에 저장하기
+    }
+    
+    func registerXib(){
         let snib = UINib(nibName: "HeaderTVC", bundle: nil)
         tableview.register(snib, forCellReuseIdentifier: "HeaderTVC")
         
@@ -52,10 +66,8 @@ class WeatherDetailVC: UIViewController {
         
         let bottomNib = UINib(nibName: BottomTVC.identifier, bundle: nil)
         tableview.register(bottomNib, forCellReuseIdentifier: BottomTVC.identifier)
-        
     }
-    
-    
+
 }
 
 
@@ -108,7 +120,6 @@ extension WeatherDetailVC: UITableViewDelegate {
         case 1:
             
             guard let headercell = tableView.dequeueReusableCell(withIdentifier: "HeaderTVC") as? HeaderTVC else { return UITableViewCell() }
-            //headerview.addSubview(headercell)
             return headercell
             
         default:

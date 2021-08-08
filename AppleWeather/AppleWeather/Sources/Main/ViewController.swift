@@ -122,11 +122,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 containView.addSubview(containerView)
                 containerView.addSubview(vc.view)
                 vc.locationLabel.text = cityList[index]
-                //vc.scroll.delegate = self
+                
                 vcList.append(vc)
             }
             else { return }
-            //vc.locationLabel.text = locationName
             
         }
         

@@ -43,6 +43,39 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pLs-Yg-vi9">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4OX-2Z-TrS">
+                                        <rect key="frame" x="20" y="10" width="30" height="30"/>
+                                        <state key="normal" title="취소">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectCancelButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="VXQ-Jd-PHV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cg-Te-7sn">
+                                        <rect key="frame" x="364" y="10" width="30" height="30"/>
+                                        <state key="normal" title="추가">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectAddButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Hej-hP-8l5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="iIM-gk-FGq"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="6cg-Te-7sn" secondAttribute="trailing" constant="20" id="0hP-X3-g8G"/>
+                                    <constraint firstAttribute="height" constant="50" id="2Hz-4m-jEg"/>
+                                    <constraint firstItem="iIM-gk-FGq" firstAttribute="bottom" secondItem="6cg-Te-7sn" secondAttribute="bottom" constant="10" id="MmY-xt-dyp"/>
+                                    <constraint firstItem="4OX-2Z-TrS" firstAttribute="leading" secondItem="pLs-Yg-vi9" secondAttribute="leading" constant="20" id="XZa-cD-JsX"/>
+                                    <constraint firstItem="4OX-2Z-TrS" firstAttribute="top" secondItem="pLs-Yg-vi9" secondAttribute="top" constant="10" id="fT8-yL-xW2"/>
+                                    <constraint firstItem="6cg-Te-7sn" firstAttribute="top" secondItem="pLs-Yg-vi9" secondAttribute="top" constant="10" id="hMI-JU-eBB"/>
+                                    <constraint firstItem="iIM-gk-FGq" firstAttribute="bottom" secondItem="4OX-2Z-TrS" secondAttribute="bottom" constant="10" id="j8N-Mt-W6X"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <constraints>
@@ -53,17 +86,21 @@
                             <constraint firstItem="hfe-O4-zMN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Awu-uj-Ekk"/>
                             <constraint firstItem="y7m-og-I14" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="80" id="HSN-Lw-wga"/>
                             <constraint firstAttribute="bottom" secondItem="AWt-VO-fVD" secondAttribute="bottom" id="Jcc-lh-ozU"/>
+                            <constraint firstItem="pLs-Yg-vi9" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="MxC-aZ-SaI"/>
                             <constraint firstItem="AWt-VO-fVD" firstAttribute="top" secondItem="hfe-O4-zMN" secondAttribute="bottom" id="PKc-3n-Udr"/>
                             <constraint firstItem="y7m-og-I14" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="Uhp-sW-LZ5"/>
                             <constraint firstItem="pWn-gp-Vc8" firstAttribute="top" secondItem="y7m-og-I14" secondAttribute="bottom" constant="5" id="YIP-my-f84"/>
                             <constraint firstItem="xiC-Fs-aL7" firstAttribute="top" secondItem="pWn-gp-Vc8" secondAttribute="bottom" constant="5" id="ab4-BT-QXB"/>
                             <constraint firstItem="xiC-Fs-aL7" firstAttribute="centerX" secondItem="y7m-og-I14" secondAttribute="centerX" id="ecC-nO-jYy"/>
+                            <constraint firstItem="pLs-Yg-vi9" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="iU8-XI-Udl"/>
                             <constraint firstItem="AWt-VO-fVD" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="raZ-Ro-hGz"/>
+                            <constraint firstItem="pLs-Yg-vi9" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="x2i-8l-07M"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="labelTop" destination="HSN-Lw-wga" id="mvm-AB-AzG"/>
                         <outlet property="locationLabel" destination="y7m-og-I14" id="8y9-2d-Gtw"/>
+                        <outlet property="selectView" destination="pLs-Yg-vi9" id="VGh-zS-D83"/>
                         <outlet property="tableview" destination="hfe-O4-zMN" id="k6q-xv-jAQ"/>
                         <outlet property="temperatureLabel" destination="xiC-Fs-aL7" id="Prx-9H-gY3"/>
                     </connections>
