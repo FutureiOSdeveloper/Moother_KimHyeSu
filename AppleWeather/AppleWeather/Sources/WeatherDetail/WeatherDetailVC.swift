@@ -13,6 +13,8 @@ class WeatherDetailVC: UIViewController {
     public static let identifier = "WeatherDetailVC"
     public static var nowLocationName : String = "기본"
     //let headerview = UIView()
+    var locationLatitude: Double!
+    var locationLongitude: Double!
     
     @IBOutlet weak var locationLabel: UILabel!
     
@@ -49,9 +51,10 @@ class WeatherDetailVC: UIViewController {
     
     @IBAction func selectAddButtonClicked(_ sender: Any) {
         // UserDefaults에 저장하기
-        ViewController.cityList.append(locationLabel.text!)
+        let newLocation = LocationListModel(locationName: locationLabel.text!, locationLati: locationLatitude, locationLong: locationLongitude)
+        ViewController.cityList.append(newLocation )
         NotificationCenter.default.post(name: NSNotification.Name("addCityNoti")
-                                        ,object: locationLabel.text)
+                                        ,object: newLocation)
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
         
 

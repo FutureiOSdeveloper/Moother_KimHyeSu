@@ -11,7 +11,8 @@ import CoreLocation
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
 
-    public static var cityList : [String] = []
+    //public static var cityList : [String] = []
+    public static var cityList: [LocationListModel] = []
     var vcList : [UIViewController] = []
     
     
@@ -62,6 +63,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @objc func cityAdd(notification: NSNotification){
         let containerView = UIView()
         let sb = UIStoryboard(name: "WeatherDetail", bundle: nil)
+        guard let addLocation = notification.object as? LocationListModel else {
+            return
+        }
         
         if let vc = sb.instantiateViewController(withIdentifier: WeatherDetailVC.identifier) as? WeatherDetailVC {
             //vc.locationLabel.text = cityList[index]
@@ -69,7 +73,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             containerView.frame.origin.x = UIScreen.main.bounds.width * CGFloat(ViewController.cityList.count - 1)
             containView.addSubview(containerView)
             containerView.addSubview(vc.view)
-            vc.locationLabel.text = notification.object as? String
+            //let locationList =
+            vc.locationLabel.text = addLocation.locationName
             
             vcList.append(vc)
             vc.reloadInputViews()
@@ -114,7 +119,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             let geocoder = CLGeocoder()
             let locale = Locale(identifier: "Ko-kr")
             geocoder.reverseGeocodeLocation(ViewController.nowLocation, preferredLocale: locale, completionHandler: {(placemarks, error) in if let address: [CLPlacemark] = placemarks { if let name: String = address.last?.name { print(name)
-                ViewController.cityList[0] = name
+                //ViewController.cityList[0] = name
+                ViewController.cityList[0] = LocationListModel(locationName: name,
+                                                               locationLati: self.latitude!,
+                                                               locationLong: self.longitude!)
                 print("ViewController.cityList[0]: ", ViewController.cityList[0])
                 self.setScrollviewUI()
             } //전체 주소
@@ -138,7 +146,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 containerView.frame.origin.x = UIScreen.main.bounds.width * CGFloat(index)
                 containView.addSubview(containerView)
                 containerView.addSubview(vc.view)
-                vc.locationLabel.text = ViewController.cityList[index]
+                vc.locationLabel.text = ViewController.cityList[index].locationName
                 vc.reloadInputViews()
                 vcList.append(vc)
             }
@@ -159,7 +167,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func setDummy(){
-        ViewController.cityList.append(contentsOf: ["현재위치"])
+        ViewController.cityList.append(contentsOf: [LocationListModel(locationName: "현재위치", locationLati: 0, locationLong: 0)])
         
     }
     

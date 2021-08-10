@@ -121,6 +121,8 @@ extension SearchVC: UITableViewDelegate {
             guard let newVC = sb.instantiateViewController(withIdentifier: WeatherDetailVC.identifier) as? WeatherDetailVC else { return }
             newVC.view.backgroundColor = .blue
             newVC.locationLabel.text = placeMark.title!
+            newVC.locationLatitude = placeMark.coordinate.latitude
+            newVC.locationLongitude = placeMark.coordinate.longitude
             newVC.selectView.isHidden = false
             self.present(newVC, animated: true, completion: nil)
         }
