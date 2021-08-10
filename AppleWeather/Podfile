@@ -7,4 +7,5 @@ target 'AppleWeather' do
 
   # Pods for AppleWeather
 pod 'lottie-ios'
+pod 'Moya', '~> 14.0'
 end
