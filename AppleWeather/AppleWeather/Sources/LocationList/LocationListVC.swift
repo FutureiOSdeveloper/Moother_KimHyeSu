@@ -19,6 +19,7 @@ class LocationListVC: UIViewController {
     @IBOutlet weak var temperatureButton: UIButton!
     @IBOutlet weak var footerView: UIView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setButtonUI(selected: select)
@@ -30,6 +31,17 @@ class LocationListVC: UIViewController {
         //tableviewHeight.constant = 100 + 70*4 + 70
         
         tableview.tableFooterView = footerView
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(cityAdd),
+                                               name: Notification.Name("addCityNoti"),
+                                               object: nil)
+
+    }
+    
+    @objc func cityAdd(notification: NSNotification){
+        //ViewController.cityList.append(notification.object as! String)
+        tableview.reloadData()
     }
     
     func setButtonUI(selected : Bool){
@@ -79,7 +91,7 @@ extension LocationListVC : UITableViewDelegate {
 
 extension LocationListVC : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return locationList.count
+        return ViewController.cityList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -87,7 +99,7 @@ extension LocationListVC : UITableViewDataSource {
         guard let cell = tableview.dequeueReusableCell(withIdentifier: LocationListTVC.identifier, for: indexPath) as? LocationListTVC else {
             return UITableViewCell()
         }
-        cell.setData(time: "오전 12:30", location: locationList[indexPath.row], temperature: 27, celsius: !select)
+        cell.setData(time: "오전 12:30", location: ViewController.cityList[indexPath.row], temperature: 27, celsius: !select)
         return cell
         
         

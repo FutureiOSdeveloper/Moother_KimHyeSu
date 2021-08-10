@@ -49,6 +49,11 @@ class WeatherDetailVC: UIViewController {
     
     @IBAction func selectAddButtonClicked(_ sender: Any) {
         // UserDefaults에 저장하기
+        ViewController.cityList.append(locationLabel.text!)
+        NotificationCenter.default.post(name: NSNotification.Name("addCityNoti")
+                                        ,object: locationLabel.text)
+        
+        print("locationLabel.text!", locationLabel.text!)
     }
     
     func registerXib(){
