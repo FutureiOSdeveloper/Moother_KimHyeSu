@@ -10,9 +10,7 @@ import Lottie
 import CoreLocation
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
-    
-    
-    
+
     public static var cityList : [String] = []
     var vcList : [UIViewController] = []
     
@@ -52,8 +50,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         setDummy()
         getLocation()
-
-        
         setupPageControl()
         
         NotificationCenter.default.addObserver(self, selector: #selector(pageChange), name: Notification.Name("noti1"), object: nil)
@@ -124,8 +120,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             } //전체 주소
             }
             })
-            
-            //self.setScrollviewUI()
         }}
     
     

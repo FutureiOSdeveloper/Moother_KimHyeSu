@@ -8,8 +8,6 @@
 import UIKit
 
 class LocationListVC: UIViewController {
-    
-    var locationList : [String] = ["현위치", "서울시", "강남구", "마포구", "수원시"]
 
     public static let identifier = "LocationListVC"
     var select : Bool = true
@@ -28,8 +26,6 @@ class LocationListVC: UIViewController {
         tableview.dataSource = self
         tableview.contentInsetAdjustmentBehavior = .never
         tableview.backgroundColor = .black
-        //tableviewHeight.constant = 100 + 70*4 + 70
-        
         tableview.tableFooterView = footerView
         
         NotificationCenter.default.addObserver(self,
@@ -40,7 +36,6 @@ class LocationListVC: UIViewController {
     }
     
     @objc func cityAdd(notification: NSNotification){
-        //ViewController.cityList.append(notification.object as! String)
         tableview.reloadData()
     }
     
@@ -121,8 +116,9 @@ extension LocationListVC : UITableViewDataSource {
             
             if editingStyle == .delete {
                 
-                locationList.remove(at: indexPath.row)
+                ViewController.cityList.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
+                
                 
             } else if editingStyle == .insert {
                 

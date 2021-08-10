@@ -52,8 +52,9 @@ class WeatherDetailVC: UIViewController {
         ViewController.cityList.append(locationLabel.text!)
         NotificationCenter.default.post(name: NSNotification.Name("addCityNoti")
                                         ,object: locationLabel.text)
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
         
-        print("locationLabel.text!", locationLabel.text!)
+
     }
     
     func registerXib(){
