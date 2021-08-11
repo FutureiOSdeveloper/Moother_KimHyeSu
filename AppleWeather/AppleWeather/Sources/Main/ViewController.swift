@@ -16,8 +16,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     public static var cityList: [LocationListModel] = []
     var vcList : [UIViewController] = []
     
-    private let weatherProvider = MoyaProvider<GetWeatherService>()
-    var weatherData: GetWeatherModel?
+    
     
     var locationManager: CLLocationManager = CLLocationManager()
     var latitude: Double? // 위도
@@ -80,6 +79,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             vc.locationLabel.text = addLocation.locationName
             
             vcList.append(vc)
+            vc.getWeather(lat: addLocation.locationLati, lon: addLocation.locationLong)
             vc.reloadInputViews()
                     }
         else { return }
@@ -149,12 +149,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 containerView.frame.origin.x = UIScreen.main.bounds.width * CGFloat(index)
                 containView.addSubview(containerView)
                 containerView.addSubview(vc.view)
-                
+                vc.index = index
                 vc.locationLabel.text = ViewController.cityList[index].locationName
                 print("잘 받아와졌는지", ViewController.cityList[index].locationLong)
+                vc.getWeather(lat: ViewController.cityList[index].locationLati,
+                              lon: ViewController.cityList[index].locationLong)
+               
+                    
                 
-                getWeather(lat: ViewController.cityList[index].locationLati,
-                           lon: ViewController.cityList[index].locationLong)
+                
                 vc.reloadInputViews()
                 vcList.append(vc)
             }
@@ -216,26 +219,3 @@ extension ViewController : UIScrollViewDelegate {
     }
 }
 
-extension ViewController {
-    
-    func getWeather(lat: Double, lon: Double){
-        let param: RequestWeatherModel = RequestWeatherModel.init(lat: lat, lon: lon, appid: GeneralAPI.APIkey, units: "metric")
-        
-        // 일단 서버통신 완료.
-        //let param: RequestWeatherModel = RequestWeatherModel.init(lat: 37, lon: 127, appid: GeneralAPI.APIkey, units: "metric")
-        
-        weatherProvider.request(.getWeather(param: param) ){ response in
-            switch response {
-            case .success(let result):
-                do {
-                    self.weatherData = try result.map(GetWeatherModel.self)
-                    print("모야서버통신", self.weatherData)
-                } catch(let err) {
-                    print(err.localizedDescription)
-                }
-            case .failure(let err):
-                print("에러", err.localizedDescription)
-            }
-        }
-    }
-}

@@ -7,14 +7,20 @@
 
 import UIKit
 import CoreLocation
+import Moya
+
 
 class WeatherDetailVC: UIViewController {
+    
+    private let weatherProvider = MoyaProvider<GetWeatherService>()
+    var weatherData: GetWeatherModel?
     
     public static let identifier = "WeatherDetailVC"
     public static var nowLocationName : String = "기본"
     //let headerview = UIView()
     var locationLatitude: Double!
     var locationLongitude: Double!
+    var index: Int = 0
     
     @IBOutlet weak var locationLabel: UILabel!
     
@@ -31,15 +37,22 @@ class WeatherDetailVC: UIViewController {
     @IBOutlet weak var topview: UIView!
     @IBOutlet weak var tableview: UITableView!
     
+    
+    
     @IBOutlet weak var labelTop: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+//        getWeather(lat: ViewController.cityList[index].locationLati,
+//                   lon: ViewController.cityList[index].locationLong)
         tableview.backgroundColor = .none
         tableview.delegate = self
         tableview.dataSource = self
         locationLabel.text = "아놔"
         selectView.isHidden = true
         registerXib()
+        
+        
         
     }
     
@@ -59,6 +72,8 @@ class WeatherDetailVC: UIViewController {
         
 
     }
+    
+    
     
     func registerXib(){
         let snib = UINib(nibName: "HeaderTVC", bundle: nil)
@@ -238,3 +253,26 @@ extension WeatherDetailVC: UITableViewDataSource {
     
 }
 
+extension WeatherDetailVC {
+    
+    func getWeather(lat: Double, lon: Double){
+        let param: RequestWeatherModel = RequestWeatherModel.init(lat: lat, lon: lon, appid: GeneralAPI.APIkey, units: "metric")
+        
+        weatherProvider.request(.getWeather(param: param) ){ response in
+            switch response {
+            case .success(let result):
+                do {
+                    self.weatherData = try result.map(GetWeatherModel.self)
+                    print("모야서버통신", self.weatherData)
+                    self.temperatureLabel.text = "\(Int((self.weatherData?.main?.temp)!) ?? 0)"
+                    //print("뭐가나오능겨", self.weatherData?.coord.lat ?? 0)
+                    
+                } catch(let err) {
+                    print(err.localizedDescription)
+                }
+            case .failure(let err):
+                print("에러", err.localizedDescription)
+            }
+        }
+    }
+}

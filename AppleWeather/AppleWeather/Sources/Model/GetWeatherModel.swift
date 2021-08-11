@@ -29,7 +29,7 @@ struct GetWeatherModel: Codable {
     let wind: Wind
     let clouds: Clouds
     let dt: Int
-    let sys: Sys?
+    let sys: Sys
     let timezone, id: Int
     let name: String
     let cod: Int
@@ -37,7 +37,7 @@ struct GetWeatherModel: Codable {
 
 // MARK: - Clouds
 struct Clouds: Codable {
-    let all: Int
+    let all: Int?
 }
 
 // MARK: - Coord
@@ -77,7 +77,7 @@ struct Main: Codable {
 struct Sys: Codable {
     var type, id: Int?
     var country: String?
-    var sunrise, sunset: Int
+    var sunrise, sunset: Int?
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -92,8 +92,8 @@ struct Sys: Codable {
 
 // MARK: - Weather
 struct Weather: Codable {
-    let id: Int
-    let main, weatherDescription, icon: String
+    let id: Int?
+    let main, weatherDescription, icon: String?
 
     enum CodingKeys: String, CodingKey {
         case id, main
@@ -104,7 +104,8 @@ struct Weather: Codable {
 
 // MARK: - Wind
 struct Wind: Codable {
-    let speed: Double
-    let deg: Int
-    let gust: Double
+    let speed: Double?
+    let deg: Int?
+    let gust: Double?
+    
 }
