@@ -21,6 +21,7 @@ class WeatherDetailVC: UIViewController {
     var locationLatitude: Double!
     var locationLongitude: Double!
     var index: Int = 0
+    var collectionData: [String]?
     
     @IBOutlet weak var locationLabel: UILabel!
     
@@ -211,7 +212,7 @@ extension WeatherDetailVC: UITableViewDataSource {
                 guard let cell = tableview.dequeueReusableCell(withIdentifier: TodayDetailTVC.identifier, for: indexPath) as? TodayDetailTVC else {
                     return UITableViewCell()
                 }
-                cell.setData(contentslist: ["1","2","3","4","5","6","7","8","9","10"])
+                cell.setData(contentslist: collectionData!)
                 return cell
                 
             case 10:
@@ -267,6 +268,16 @@ extension WeatherDetailVC {
                     print("모야서버통신", self.weatherData)
                     self.temperatureLabel.text = "\(Int((self.weatherData?.main?.temp)!) ?? 0)"
                     //print("뭐가나오능겨", self.weatherData?.coord.lat ?? 0)
+                    self.collectionData = ["\((self.weatherData?.sys.sunrise)!)",
+                                           "\((self.weatherData?.sys.sunset)!)",
+                                           "비 올 확률",
+                                           "\((self.weatherData?.main?.humidity)!)",
+                                           "바람",
+                                           "\((self.weatherData?.main?.feelsLike)!)",
+                                           "강수량",
+                                           "\((self.weatherData?.main?.pressure)!)",
+                                           "\((self.weatherData?.visibility)!)",
+                                           "자외선지수"]
                     
                 } catch(let err) {
                     print(err.localizedDescription)
