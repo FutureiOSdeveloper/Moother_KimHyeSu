@@ -10,6 +10,10 @@ import UIKit
 class TodayDetailTVC: UITableViewCell {
 
     public static let identifier = "TodayDetailTVC"
+    
+    let collectionTitleList : [String] = ["일출", "일몰", "비 올 확률", "습도", "바람", "체감", "강수량", "기압", "가시거리", "자외선 지수"]
+    var contentsList : [String] = []
+    
     @IBOutlet weak var collectionview: UICollectionView!
     
     override func awakeFromNib() {
@@ -31,6 +35,10 @@ class TodayDetailTVC: UITableViewCell {
         collectionview.register(nib, forCellWithReuseIdentifier: TodayDetailCVC.identifier)
     }
     
+    func setData(contentslist : [String]){
+        self.contentsList.append(contentsOf: contentslist)
+    }
+    
 }
 
 extension TodayDetailTVC: UICollectionViewDelegate {
@@ -46,6 +54,7 @@ extension TodayDetailTVC: UICollectionViewDataSource {
         guard let cell = collectionview.dequeueReusableCell(withReuseIdentifier: TodayDetailCVC.identifier, for: indexPath) as? TodayDetailCVC else {
             return UICollectionViewCell()
         }
+        cell.setData(title: collectionTitleList[indexPath.row], contents: contentsList[indexPath.row])
         // setData 해주기
         return cell
     }

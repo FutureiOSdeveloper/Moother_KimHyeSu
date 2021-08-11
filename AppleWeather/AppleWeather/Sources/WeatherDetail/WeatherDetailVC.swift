@@ -211,6 +211,7 @@ extension WeatherDetailVC: UITableViewDataSource {
                 guard let cell = tableview.dequeueReusableCell(withIdentifier: TodayDetailTVC.identifier, for: indexPath) as? TodayDetailTVC else {
                     return UITableViewCell()
                 }
+                cell.setData(contentslist: ["1","2","3","4","5","6","7","8","9","10"])
                 return cell
                 
             case 10:
