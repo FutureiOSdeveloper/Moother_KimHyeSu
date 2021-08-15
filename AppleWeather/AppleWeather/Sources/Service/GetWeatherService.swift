@@ -10,7 +10,7 @@ import Moya
 
 enum GetWeatherService {
     //case getWeather(_ lat: Double? = nil, _ lon: Double? = nil, _ appid: String? = nil, _ units: String? = nil)
-    case getWeather(param: RequestWeatherModel)
+    case getWeatherOne(param: RequestWeatherModel)
 }
 
 extension GetWeatherService: TargetType {
@@ -20,21 +20,24 @@ extension GetWeatherService: TargetType {
     
     var path: String {
         switch self {
-        case .getWeather(_):
-            return "/data/2.5/weather"
+        
+        case .getWeatherOne(_):
+            return "/data/2.5/onecall"
         }
     }
     
     var parameterEncoding: ParameterEncoding {
         switch self {
-        case .getWeather(_):
+        
+        case .getWeatherOne(_):
             return URLEncoding.default
+            
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .getWeather(_):
+        case .getWeatherOne(_):
             return .get
         }
     }
@@ -45,7 +48,7 @@ extension GetWeatherService: TargetType {
     
     var task: Task {
         switch self {
-        case .getWeather(let param):
+        case .getWeatherOne(let param):
             
             return .requestParameters(parameters: try! param.asDictionary() , encoding: URLEncoding.default)
         }

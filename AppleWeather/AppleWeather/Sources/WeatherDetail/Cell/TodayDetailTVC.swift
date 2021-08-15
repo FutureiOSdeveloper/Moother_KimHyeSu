@@ -54,7 +54,7 @@ extension TodayDetailTVC: UICollectionViewDataSource {
         guard let cell = collectionview.dequeueReusableCell(withReuseIdentifier: TodayDetailCVC.identifier, for: indexPath) as? TodayDetailCVC else {
             return UICollectionViewCell()
         }
-        cell.setData(title: collectionTitleList[indexPath.row], contents: contentsList[indexPath.row])
+//        cell.setData(title: collectionTitleList[indexPath.row], contents: contentsList[indexPath.row])
         // setData 해주기
         return cell
     }

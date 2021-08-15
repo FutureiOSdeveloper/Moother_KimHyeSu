@@ -212,7 +212,7 @@ extension WeatherDetailVC: UITableViewDataSource {
                 guard let cell = tableview.dequeueReusableCell(withIdentifier: TodayDetailTVC.identifier, for: indexPath) as? TodayDetailTVC else {
                     return UITableViewCell()
                 }
-                cell.setData(contentslist: collectionData!)
+                //cell.setData(contentslist: collectionData!)
                 return cell
                 
             case 10:
@@ -260,24 +260,24 @@ extension WeatherDetailVC {
     func getWeather(lat: Double, lon: Double){
         let param: RequestWeatherModel = RequestWeatherModel.init(lat: lat, lon: lon, appid: GeneralAPI.APIkey, units: "metric")
         
-        weatherProvider.request(.getWeather(param: param) ){ response in
+        weatherProvider.request(.getWeatherOne(param: param) ){ response in
             switch response {
             case .success(let result):
                 do {
                     self.weatherData = try result.map(GetWeatherModel.self)
                     print("모야서버통신", self.weatherData)
-                    self.temperatureLabel.text = "\(Int((self.weatherData?.main?.temp)!) ?? 0)"
-                    //print("뭐가나오능겨", self.weatherData?.coord.lat ?? 0)
-                    self.collectionData = ["\((self.weatherData?.sys.sunrise)!)",
-                                           "\((self.weatherData?.sys.sunset)!)",
-                                           "비 올 확률",
-                                           "\((self.weatherData?.main?.humidity)!)",
-                                           "바람",
-                                           "\((self.weatherData?.main?.feelsLike)!)",
-                                           "강수량",
-                                           "\((self.weatherData?.main?.pressure)!)",
-                                           "\((self.weatherData?.visibility)!)",
-                                           "자외선지수"]
+//                    //self.temperatureLabel.text = "\(Int((self.weatherData?.main?.temp)!) ?? 0)"
+//                    //print("뭐가나오능겨", self.weatherData?.coord.lat ?? 0)
+//                 self.collectionData = ["\((self.weatherData?.sys.sunrise)!)",
+//                                           "\((self.weatherData?.sys.sunset)!)",
+//                                           "비 올 확률",
+//                                           "\((self.weatherData?.main?.humidity)!)",
+//                                           "바람",
+//                                           "\((self.weatherData?.main?.feelsLike)!)",
+//                                           "강수량",
+//                                           "\((self.weatherData?.main?.pressure)!)",
+//                                           "\((self.weatherData?.visibility)!)",
+//                                           "자외선지수"]
                     
                 } catch(let err) {
                     print(err.localizedDescription)
