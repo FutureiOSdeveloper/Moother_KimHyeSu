@@ -14,6 +14,8 @@
 		151175E226ABE89900FD4077 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 151175E126ABE89900FD4077 /* Assets.xcassets */; };
 		151175E526ABE89900FD4077 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 151175E326ABE89900FD4077 /* LaunchScreen.storyboard */; };
 		15224ACE26C92EBD006494F9 /* MoyaLoggingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15224ACD26C92EBD006494F9 /* MoyaLoggingPlugin.swift */; };
+		15224AD026C93106006494F9 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15224ACF26C93106006494F9 /* String + Extension.swift */; };
+		15224AD226C939C1006494F9 /* Date + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15224AD126C939C1006494F9 /* Date + extension.swift */; };
 		155C28E926C2FA5300CC5FFF /* GetWeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C28E826C2FA5300CC5FFF /* GetWeatherService.swift */; };
 		155C28EB26C3035500CC5FFF /* RequestWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C28EA26C3035500CC5FFF /* RequestWeatherModel.swift */; };
 		155C28ED26C3052F00CC5FFF /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C28EC26C3052F00CC5FFF /* Encodable.swift */; };
@@ -61,6 +63,8 @@
 		151175E426ABE89900FD4077 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		151175E626ABE89900FD4077 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15224ACD26C92EBD006494F9 /* MoyaLoggingPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLoggingPlugin.swift; sourceTree = "<group>"; };
+		15224ACF26C93106006494F9 /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
+		15224AD126C939C1006494F9 /* Date + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + extension.swift"; sourceTree = "<group>"; };
 		155C28E826C2FA5300CC5FFF /* GetWeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWeatherService.swift; sourceTree = "<group>"; };
 		155C28EA26C3035500CC5FFF /* RequestWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestWeatherModel.swift; sourceTree = "<group>"; };
 		155C28EC26C3052F00CC5FFF /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
@@ -282,6 +286,8 @@
 			children = (
 				15BFA5D326BD255800E03823 /* ViewController + Extension.swift */,
 				155C28EC26C3052F00CC5FFF /* Encodable.swift */,
+				15224ACF26C93106006494F9 /* String + Extension.swift */,
+				15224AD126C939C1006494F9 /* Date + extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -443,8 +449,10 @@
 			files = (
 				159EDB5326C2B9C400C2932D /* LocationListModel.swift in Sources */,
 				15D0517C26AC563C0012BC74 /* WeatherDetailVC.swift in Sources */,
+				15224AD026C93106006494F9 /* String + Extension.swift in Sources */,
 				15B2435F26B1CFF000301D23 /* DaysTVC.swift in Sources */,
 				159EDB5526C2C5F100C2932D /* GeneralAPI.swift in Sources */,
+				15224AD226C939C1006494F9 /* Date + extension.swift in Sources */,
 				15B2435626B1BFA800301D23 /* HeaderTVC.swift in Sources */,
 				15BFA57726B68F5B00E03823 /* LocationListTVC.swift in Sources */,
 				15BFA5D426BD255800E03823 /* ViewController + Extension.swift in Sources */,

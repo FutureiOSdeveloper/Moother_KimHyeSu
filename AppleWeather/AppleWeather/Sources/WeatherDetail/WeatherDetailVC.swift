@@ -47,8 +47,7 @@ class WeatherDetailVC: UIViewController {
 //        getWeather(lat: ViewController.cityList[index].locationLati,
 //                   lon: ViewController.cityList[index].locationLong)
         tableview.backgroundColor = .none
-        tableview.delegate = self
-        tableview.dataSource = self
+        
         locationLabel.text = "아놔"
         selectView.isHidden = true
         registerXib()
@@ -212,7 +211,8 @@ extension WeatherDetailVC: UITableViewDataSource {
                 guard let cell = tableview.dequeueReusableCell(withIdentifier: TodayDetailTVC.identifier, for: indexPath) as? TodayDetailTVC else {
                     return UITableViewCell()
                 }
-                //cell.setData(contentslist: collectionData!)
+                
+                cell.setData(contentslist: collectionData ?? ["1","1","1","1","1","1","1","1","1","1"])
                 return cell
                 
             case 10:
@@ -266,22 +266,25 @@ extension WeatherDetailVC {
                 do {
                     self.weatherData = try result.map(GetWeatherModel.self)
                     print("모야서버통신", self.weatherData)
-//                    //self.temperatureLabel.text = "\(Int((self.weatherData?.main?.temp)!) ?? 0)"
-//                    //print("뭐가나오능겨", self.weatherData?.coord.lat ?? 0)
-//                 self.collectionData = ["\((self.weatherData?.sys.sunrise)!)",
-//                                           "\((self.weatherData?.sys.sunset)!)",
-//                                           "비 올 확률",
-//                                           "\((self.weatherData?.main?.humidity)!)",
-//                                           "바람",
-//                                           "\((self.weatherData?.main?.feelsLike)!)",
-//                                           "강수량",
-//                                           "\((self.weatherData?.main?.pressure)!)",
-//                                           "\((self.weatherData?.visibility)!)",
-//                                           "자외선지수"]
-                    
+                    self.temperatureLabel.text = "\(Int((self.weatherData?.current.temp)!))"
+                    self.collectionData = ["\((self.weatherData?.current.sunrise)!)".stringFromDate(),
+                                           "\((self.weatherData?.current.sunset)!)".stringFromDate(),
+                                           "비 올 확률",
+                                           "\((self.weatherData?.current.humidity)!)%",
+                                           "바람",
+                                           "\(Int((self.weatherData?.current.feelsLike)!))º",
+                                           "강수량",
+                                           "\((self.weatherData?.current.pressure)!)hPa",
+                                           "\((self.weatherData?.current.visibility)! / 1000)km",
+                                           "자외선지수"]
+
+                    self.tableview.reloadData()
+                    self.tableview.delegate = self
+                    self.tableview.dataSource = self
                 } catch(let err) {
                     print(err.localizedDescription)
                 }
+                
             case .failure(let err):
                 print("에러", err.localizedDescription)
             }

@@ -20,7 +20,7 @@ struct GetWeatherModel: Codable {
     let timezone: String
     let timezoneOffset: Int
     let current: Current
-    let minutely: [Minutely]
+    let minutely: [Minutely]?
     let hourly: [Current]
     let daily: [Daily]
 
@@ -213,7 +213,7 @@ struct Temp: Codable {
 
 // MARK: - Minutely
 struct Minutely: Codable {
-    let dt: Int
+    let dt: Int?
     let precipitation: Double
     
     init(from decoder: Decoder) throws {
