@@ -12,7 +12,7 @@ import Moya
 
 class WeatherDetailVC: UIViewController {
     
-    private let weatherProvider = MoyaProvider<GetWeatherService>()
+    private let weatherProvider = MoyaProvider<GetWeatherService>(plugins: [MoyaLoggingPlugin()])
     var weatherData: GetWeatherModel?
     
     public static let identifier = "WeatherDetailVC"
