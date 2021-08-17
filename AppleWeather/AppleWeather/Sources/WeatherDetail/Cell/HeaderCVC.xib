@@ -60,6 +60,11 @@
                 <constraint firstAttribute="bottom" secondItem="hGH-1q-KpA" secondAttribute="bottom" id="NCY-wi-iU4"/>
             </constraints>
             <size key="customSize" width="73" height="133"/>
+            <connections>
+                <outlet property="iconLabel" destination="ssf-Jc-Chb" id="ydy-Ln-2L0"/>
+                <outlet property="temperatureLabel" destination="r2V-tM-IWz" id="Cf8-h2-UbQ"/>
+                <outlet property="timeLabel" destination="GWU-Ja-1QX" id="Olq-lr-aDa"/>
+            </connections>
             <point key="canvasLocation" x="-6.5217391304347831" y="107.47767857142857"/>
         </collectionViewCell>
     </objects>

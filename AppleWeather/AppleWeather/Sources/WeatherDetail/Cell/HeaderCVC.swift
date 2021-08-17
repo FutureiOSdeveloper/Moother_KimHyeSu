@@ -11,9 +11,19 @@ class HeaderCVC: UICollectionViewCell {
     
     public static let identifier = "HeaderCVC"
 
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var iconLabel: UILabel!
+    @IBOutlet weak var temperatureLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    func setData(time: String, icon: String, temperature: Int){
+        timeLabel.text = time
+        iconLabel.text = icon
+        temperatureLabel.text = "\(temperature)º"
     }
 
 }

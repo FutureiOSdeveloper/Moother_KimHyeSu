@@ -77,6 +77,13 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="dayLabel" destination="xwu-0I-x6m" id="AO6-bW-MbN"/>
+                <outlet property="iconLabel" destination="aYO-kz-7rh" id="EKV-yz-dpQ"/>
+                <outlet property="maxtempLabel" destination="WqL-Au-RuQ" id="OdH-md-7ef"/>
+                <outlet property="mimtempLabel" destination="V8Q-2q-pAF" id="bmX-1A-Ugl"/>
+                <outlet property="percentLabel" destination="mGx-Rb-r6b" id="vCC-EI-Hv1"/>
+            </connections>
             <point key="canvasLocation" x="-22" y="80"/>
         </tableViewCell>
     </objects>

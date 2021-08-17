@@ -9,6 +9,7 @@ import Foundation
 
 extension String {
     
+    /// UTC -> 오전/오후 시간:분 반환
     func stringFromDate() -> String {
         let date = NSDate(timeIntervalSince1970: TimeInterval(Double(self)!))
         let dateFormatter = DateFormatter()
@@ -17,6 +18,13 @@ extension String {
         return dateFormatter.string(from: date as Date)
     }
     
-    
+    /// UTC -> 요일반환
+    func weekdayFromDate() -> String {
+        let date = NSDate(timeIntervalSince1970: TimeInterval(Double(self)!))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        return dateFormatter.string(from: date as Date)
+    }
     
 }

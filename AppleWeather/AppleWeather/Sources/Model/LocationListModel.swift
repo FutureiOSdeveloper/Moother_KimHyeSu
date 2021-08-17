@@ -14,3 +14,19 @@ struct LocationListModel {
     let locationLati: Double
     let locationLong: Double
 }
+
+// MARK:- HeaderCVC 데이터 모델
+/// 시간, 날씨, 온도 저장
+struct DaysModel {
+    let hour: String
+    let weather: String
+    let temperature: Int
+}
+
+struct WeekModel {
+    let day: String // 요일
+    let icon: Int // 날씨 아이콘
+    let rainPercent: Int // 강수확률
+    let maxTemp: Int // 최고기온
+    let minTemp: Int // 최저기온
+}

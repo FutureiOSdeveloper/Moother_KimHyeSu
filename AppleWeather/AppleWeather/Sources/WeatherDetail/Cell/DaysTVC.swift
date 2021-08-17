@@ -10,7 +10,12 @@ import UIKit
 class DaysTVC: UITableViewCell {
     
     public static let identifier = "DaysTVC"
-
+    @IBOutlet weak var dayLabel: UILabel!
+    @IBOutlet weak var iconLabel: UILabel!
+    @IBOutlet weak var percentLabel: UILabel!
+    @IBOutlet weak var maxtempLabel: UILabel!
+    @IBOutlet weak var mimtempLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,6 +25,14 @@ class DaysTVC: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setData(day: String, icon: Int, percent: Int, max: Int, min: Int){
+        dayLabel.text = day
+        // 아이콘 추가해야함
+        percentLabel.text = "\(percent)%"
+        maxtempLabel.text = "\(max)"
+        mimtempLabel.text = "\(min)"
     }
     
     public func maskCell(fromTop margin: CGFloat) {

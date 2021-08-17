@@ -22,6 +22,8 @@ class WeatherDetailVC: UIViewController {
     var locationLongitude: Double!
     var index: Int = 0
     var collectionData: [String]?
+    var daysData: [DaysModel] = []
+    var weekData: [WeekModel] = []
     
     @IBOutlet weak var locationLabel: UILabel!
     
@@ -44,8 +46,7 @@ class WeatherDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        getWeather(lat: ViewController.cityList[index].locationLati,
-//                   lon: ViewController.cityList[index].locationLong)
+
         tableview.backgroundColor = .none
         
         locationLabel.text = "아놔"
@@ -144,6 +145,7 @@ extension WeatherDetailVC: UITableViewDelegate {
         case 1:
             
             guard let headercell = tableView.dequeueReusableCell(withIdentifier: "HeaderTVC") as? HeaderTVC else { return UITableViewCell() }
+            
             return headercell
             
         default:
@@ -193,9 +195,13 @@ extension WeatherDetailVC: UITableViewDataSource {
             case 0 ... 7:
                 
                 guard let cell = tableview.dequeueReusableCell(withIdentifier: DaysTVC.identifier, for: indexPath) as? DaysTVC else {
-                    print("여기")
                     return UITableViewCell()
                 }
+                cell.setData(day: weekData[indexPath.row].day,
+                             icon: weekData[indexPath.row].icon,
+                             percent: weekData[indexPath.row].rainPercent,
+                             max: weekData[indexPath.row].maxTemp,
+                             min: weekData[indexPath.row].minTemp)
                 
                 return cell
                 
@@ -266,7 +272,10 @@ extension WeatherDetailVC {
                 do {
                     self.weatherData = try result.map(GetWeatherModel.self)
                     print("모야서버통신", self.weatherData)
+                    
+                    /// 라벨 데이터
                     self.temperatureLabel.text = "\(Int((self.weatherData?.current.temp)!))"
+                    /// 아래 컬렉션뷰 데이터
                     self.collectionData = ["\((self.weatherData?.current.sunrise)!)".stringFromDate(),
                                            "\((self.weatherData?.current.sunset)!)".stringFromDate(),
                                            "비 올 확률",
@@ -278,6 +287,40 @@ extension WeatherDetailVC {
                                            "\((self.weatherData?.current.visibility)! / 1000)km",
                                            "자외선지수"]
 
+                    //print(self.weatherData?.da[0].temp)
+                    
+                    // 하루 날씨 (시간대별) - hourly?
+                    //self.daysData = [DaysModel(hour: , weather: <#T##String#>, temperature: <#T##Int#>)]
+                    
+                    // 주간 날씨 (일주일) - daily
+                    self.weekData = [WeekModel(day: "\((self.weatherData?.daily[0].dt)!)".weekdayFromDate(),
+                                               icon: 1, rainPercent: Int((self.weatherData?.daily[0].pop)!),
+                                               maxTemp: Int(((self.weatherData?.daily[0].temp.max)!)), minTemp: Int(((self.weatherData?.daily[0].temp.min)!))),
+                                     WeekModel(day: "\((self.weatherData?.daily[1].dt)!)".weekdayFromDate(),
+                                               icon: 1, rainPercent: Int((self.weatherData?.daily[1].pop)!),
+                                               maxTemp: Int(((self.weatherData?.daily[1].temp.max)!)), minTemp: Int(((self.weatherData?.daily[1].temp.min)!))),
+                                     WeekModel(day: "\((self.weatherData?.daily[2].dt)!)".weekdayFromDate(),
+                                               icon: 1, rainPercent: Int((self.weatherData?.daily[2].pop)!),
+                                               maxTemp: Int(((self.weatherData?.daily[2].temp.max)!)), minTemp: Int(((self.weatherData?.daily[2].temp.min)!))),
+                                     WeekModel(day: "\((self.weatherData?.daily[3].dt)!)".weekdayFromDate(),
+                                               icon: 1, rainPercent: Int((self.weatherData?.daily[3].pop)!),
+                                               maxTemp: Int(((self.weatherData?.daily[3].temp.max)!)), minTemp: Int(((self.weatherData?.daily[3].temp.min)!))),
+                                     WeekModel(day: "\((self.weatherData?.daily[4].dt)!)".weekdayFromDate(),
+                                               icon: 1, rainPercent: Int((self.weatherData?.daily[4].pop)!),
+                                               maxTemp: Int(((self.weatherData?.daily[4].temp.max)!)), minTemp: Int(((self.weatherData?.daily[4].temp.min)!))),
+                                     WeekModel(day: "\((self.weatherData?.daily[5].dt)!)".weekdayFromDate(),
+                                               icon: 1, rainPercent: Int((self.weatherData?.daily[5].pop)!),
+                                               maxTemp: Int(((self.weatherData?.daily[5].temp.max)!)), minTemp: Int(((self.weatherData?.daily[5].temp.min)!))),
+                                     WeekModel(day: "\((self.weatherData?.daily[6].dt)!)".weekdayFromDate(),
+                                               icon: 1, rainPercent: Int((self.weatherData?.daily[6].pop)!),
+                                               maxTemp: Int(((self.weatherData?.daily[6].temp.max)!)), minTemp: Int(((self.weatherData?.daily[6].temp.min)!))),
+                                     WeekModel(day: "\((self.weatherData?.daily[7].dt)!)".weekdayFromDate(),
+                                               icon: 1, rainPercent: Int((self.weatherData?.daily[7].pop)!),
+                                               maxTemp: Int(((self.weatherData?.daily[7].temp.max)!)), minTemp: Int(((self.weatherData?.daily[7].temp.min)!)))
+                    ]
+                    
+                    //self.daysData = [DaysModel(hour: <#T##String#>, weather: <#T##String#>, temperature: self.weatherData?.hourly[0].temp)
+                   //                  DaysModel]
                     self.tableview.reloadData()
                     self.tableview.delegate = self
                     self.tableview.dataSource = self
