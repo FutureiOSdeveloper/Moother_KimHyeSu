@@ -11,13 +11,22 @@ import UIKit
 extension UIViewController {
     
     func dismissKeyboardWhenTappedAround() {
-            let tap: UITapGestureRecognizer =
-                UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
-            tap.cancelsTouchesInView = false
-            self.view.addGestureRecognizer(tap)
-        }
+        let tap: UITapGestureRecognizer =
+            UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
+    
+    var isModal: Bool {
         
-        @objc func dismissKeyboard() {
-            self.view.endEditing(true)
-        }
+        let presentingIsModal = presentingViewController != nil
+        let presentingIsNavigation = navigationController?.presentingViewController?.presentedViewController == navigationController
+        let presentingIsTabBar = tabBarController?.presentingViewController is UITabBarController
+        
+        return presentingIsModal || presentingIsNavigation || presentingIsTabBar
+    }
 }
