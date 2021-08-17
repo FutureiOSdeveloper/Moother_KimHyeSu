@@ -8,6 +8,8 @@
 import UIKit
 
 class HeaderTVC: UITableViewCell {
+    
+    var dayWeatherList : [DaysModel] = []
 
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var collectionview: UICollectionView!
@@ -49,6 +51,10 @@ class HeaderTVC: UITableViewCell {
             return mask
     }
     
+    func setData(list : [DaysModel]){
+        dayWeatherList = list
+    }
+    
 }
 
 extension HeaderTVC: UICollectionViewDataSource {
@@ -60,6 +66,9 @@ extension HeaderTVC: UICollectionViewDataSource {
         guard let cell = collectionview.dequeueReusableCell(withReuseIdentifier: HeaderCVC.identifier, for: indexPath) as? HeaderCVC else {
             return UICollectionViewCell()
         }
+        cell.setData(time: dayWeatherList[indexPath.row].hour,
+                     icon: dayWeatherList[indexPath.row].weather,
+                     temperature: dayWeatherList[indexPath.row].temperature)
         return cell
     }
     

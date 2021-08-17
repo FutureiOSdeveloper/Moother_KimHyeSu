@@ -27,4 +27,13 @@ extension String {
         return dateFormatter.string(from: date as Date)
     }
     
+    /// UTC -> 시간 반환
+    func hourFromDate() -> String {
+        let date = NSDate(timeIntervalSince1970: TimeInterval(Double(self)!))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "a h시"
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        return dateFormatter.string(from: date as Date)
+    }
+    
 }

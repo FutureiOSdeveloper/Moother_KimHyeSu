@@ -145,7 +145,7 @@ extension WeatherDetailVC: UITableViewDelegate {
         case 1:
             
             guard let headercell = tableView.dequeueReusableCell(withIdentifier: "HeaderTVC") as? HeaderTVC else { return UITableViewCell() }
-            
+            headercell.setData(list: daysData)
             return headercell
             
         default:
@@ -265,7 +265,7 @@ extension WeatherDetailVC {
     
     func getWeather(lat: Double, lon: Double){
         let param: RequestWeatherModel = RequestWeatherModel.init(lat: lat, lon: lon, appid: GeneralAPI.APIkey, units: "metric")
-        
+        daysData = []
         weatherProvider.request(.getWeatherOne(param: param) ){ response in
             switch response {
             case .success(let result):
@@ -292,6 +292,11 @@ extension WeatherDetailVC {
                     // 하루 날씨 (시간대별) - hourly?
                     //self.daysData = [DaysModel(hour: , weather: <#T##String#>, temperature: <#T##Int#>)]
                     
+                    for i in 1 ... 24 {
+                        self.daysData.append(DaysModel(hour: "\((self.weatherData?.hourly[i].dt)!)".hourFromDate(),
+                                                   weather: "⛅️",
+                                                   temperature: Int((self.weatherData?.hourly[i].temp)!)))
+                    }
                     // 주간 날씨 (일주일) - daily
                     self.weekData = [WeekModel(day: "\((self.weatherData?.daily[0].dt)!)".weekdayFromDate(),
                                                icon: 1, rainPercent: Int((self.weatherData?.daily[0].pop)!),
