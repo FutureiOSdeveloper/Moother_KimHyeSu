@@ -12,5 +12,6 @@ struct RequestWeatherModel: Codable {
     var lon: Double
     var appid: String
     var units: String
+    var lang: String
     //var exclude: String
 }

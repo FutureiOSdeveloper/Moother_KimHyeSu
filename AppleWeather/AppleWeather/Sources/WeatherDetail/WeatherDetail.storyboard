@@ -37,8 +37,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="청명함" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWn-gp-Vc8">
-                                <rect key="frame" x="189" y="156.5" width="36.5" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWn-gp-Vc8">
+                                <rect key="frame" x="200.5" y="156.5" width="13" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -98,6 +98,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="descriptionLabel" destination="pWn-gp-Vc8" id="8K0-wc-8y9"/>
                         <outlet property="labelTop" destination="HSN-Lw-wga" id="mvm-AB-AzG"/>
                         <outlet property="locationLabel" destination="y7m-og-I14" id="8y9-2d-Gtw"/>
                         <outlet property="selectView" destination="pLs-Yg-vi9" id="VGh-zS-D83"/>

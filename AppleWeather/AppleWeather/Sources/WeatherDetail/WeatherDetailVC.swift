@@ -27,6 +27,7 @@ class WeatherDetailVC: UIViewController {
     var locationTemp: Int!
     
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     
     @IBOutlet weak var selectView: UIView!
@@ -273,7 +274,8 @@ extension WeatherDetailVC {
     func getWeather(locationModel: LocationClass){
         let param: RequestWeatherModel = RequestWeatherModel.init(lat: locationModel.locationLati!,
                                                                   lon: locationModel.locationLong!,
-                                                                  appid: GeneralAPI.APIkey, units: "metric")
+                                                                  appid: GeneralAPI.APIkey, units: "metric",
+                                                                  lang: "kr")
         daysData = []
         weatherProvider.request(.getWeatherOne(param: param) ){ response  in
             switch response {
@@ -284,6 +286,7 @@ extension WeatherDetailVC {
                     
                     /// 라벨 데이터
                     self.temperatureLabel.text = "\(Int((self.weatherData?.current.temp)!))"
+                    self.descriptionLabel.text = self.weatherData?.current.weather[0].weatherDescription
                     locationModel.setTemp(locationTemp: Int((self.weatherData?.current.temp)!))
                     self.locationTemp = Int((self.weatherData?.current.temp)!)
                     /// 아래 컬렉션뷰 데이터
