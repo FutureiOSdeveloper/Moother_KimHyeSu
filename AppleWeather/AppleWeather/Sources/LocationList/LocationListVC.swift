@@ -76,6 +76,7 @@ extension LocationListVC : UITableViewDelegate {
         print("\(indexPath.row)선택됨")
         self.dismiss(animated: true){
             //notificationcenter
+            
             NotificationCenter.default.post(name: NSNotification.Name("noti1"), object: indexPath.row)
         }
     }
@@ -94,7 +95,9 @@ extension LocationListVC : UITableViewDataSource {
         guard let cell = tableview.dequeueReusableCell(withIdentifier: LocationListTVC.identifier, for: indexPath) as? LocationListTVC else {
             return UITableViewCell()
         }
-        cell.setData(time: "오전 12:30", location: ViewController.cityList[indexPath.row].locationName, temperature: 27, celsius: !select)
+        cell.setData(time: "오전 12:30",
+                     location: ViewController.cityList[indexPath.row].locationName!,
+                     temperature: ViewController.cityList[indexPath.row].locationTemp ?? 0 , celsius: !select)
         return cell
         
         

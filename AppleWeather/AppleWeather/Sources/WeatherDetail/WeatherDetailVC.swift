@@ -24,6 +24,7 @@ class WeatherDetailVC: UIViewController {
     var collectionData: [String]?
     var daysData: [DaysModel] = []
     var weekData: [WeekModel] = []
+    var locationTemp: Int!
     
     @IBOutlet weak var locationLabel: UILabel!
     
@@ -65,8 +66,14 @@ class WeatherDetailVC: UIViewController {
     
     @IBAction func selectAddButtonClicked(_ sender: Any) {
         // UserDefaults에 저장하기
-        let newLocation = LocationListModel(locationName: locationLabel.text!, locationLati: locationLatitude, locationLong: locationLongitude)
-        ViewController.cityList.append(newLocation )
+        let newLocation = LocationClass()
+        newLocation.setLocation(locationName: locationLabel.text! ,
+                                locationLati: locationLatitude,
+                                locationLong: locationLongitude,
+                                locationTemp: locationTemp)
+        
+        //let newLocation = LocationListModel(locationName: locationLabel.text!, locationLati: locationLatitude, locationLong: locationLongitude, locationTemp: nil)
+        ViewController.cityList.append(newLocation)
         NotificationCenter.default.post(name: NSNotification.Name("addCityNoti")
                                         ,object: newLocation)
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
@@ -263,18 +270,22 @@ extension WeatherDetailVC: UITableViewDataSource {
 
 extension WeatherDetailVC {
     
-    func getWeather(lat: Double, lon: Double){
-        let param: RequestWeatherModel = RequestWeatherModel.init(lat: lat, lon: lon, appid: GeneralAPI.APIkey, units: "metric")
+    func getWeather(locationModel: LocationClass){
+        let param: RequestWeatherModel = RequestWeatherModel.init(lat: locationModel.locationLati!,
+                                                                  lon: locationModel.locationLong!,
+                                                                  appid: GeneralAPI.APIkey, units: "metric")
         daysData = []
-        weatherProvider.request(.getWeatherOne(param: param) ){ response in
+        weatherProvider.request(.getWeatherOne(param: param) ){ response  in
             switch response {
             case .success(let result):
                 do {
                     self.weatherData = try result.map(GetWeatherModel.self)
-                    print("모야서버통신", self.weatherData)
+                    print("모야서버통신", self.weatherData!)
                     
                     /// 라벨 데이터
                     self.temperatureLabel.text = "\(Int((self.weatherData?.current.temp)!))"
+                    locationModel.setTemp(locationTemp: Int((self.weatherData?.current.temp)!))
+                    self.locationTemp = Int((self.weatherData?.current.temp)!)
                     /// 아래 컬렉션뷰 데이터
                     self.collectionData = ["\((self.weatherData?.current.sunrise)!)".stringFromDate(),
                                            "\((self.weatherData?.current.sunset)!)".stringFromDate(),
@@ -287,11 +298,6 @@ extension WeatherDetailVC {
                                            "\((self.weatherData?.current.visibility)! / 1000)km",
                                            "자외선지수"]
 
-                    //print(self.weatherData?.da[0].temp)
-                    
-                    // 하루 날씨 (시간대별) - hourly?
-                    //self.daysData = [DaysModel(hour: , weather: <#T##String#>, temperature: <#T##Int#>)]
-                    
                     for i in 1 ... 24 {
                         self.daysData.append(DaysModel(hour: "\((self.weatherData?.hourly[i].dt)!)".hourFromDate(),
                                                    weather: "⛅️",
@@ -329,6 +335,8 @@ extension WeatherDetailVC {
                     self.tableview.reloadData()
                     self.tableview.delegate = self
                     self.tableview.dataSource = self
+                    
+                    
                 } catch(let err) {
                     print(err.localizedDescription)
                 }

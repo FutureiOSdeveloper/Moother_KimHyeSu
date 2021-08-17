@@ -125,7 +125,13 @@ extension SearchVC: UITableViewDelegate {
             newVC.locationLongitude = placeMark.coordinate.longitude
             newVC.selectView.isHidden = false
             self.present(newVC, animated: true) {
-                newVC.getWeather(lat: placeMark.coordinate.latitude, lon: placeMark.coordinate.longitude)
+                //newVC.getWeather(lat: placeMark.coordinate.latitude, lon: placeMark.coordinate.longitude)
+                let locationModel = LocationClass()
+                locationModel.setLocation(locationName: placeMark.title!,
+                                          locationLati: placeMark.coordinate.latitude,
+                                          locationLong: placeMark.coordinate.longitude,
+                                          locationTemp: nil)
+                newVC.getWeather(locationModel: locationModel)
             }
         }
         

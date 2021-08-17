@@ -7,12 +7,39 @@
 
 import Foundation
 
+class LocationClass {
+    var locationName: String?
+    var locationLati: Double?
+    var locationLong: Double?
+    var locationTemp: Int?
+    
+    func setLocation(locationName: String, locationLati: Double, locationLong: Double, locationTemp: Int?){
+        self.locationName = locationName
+        self.locationLong = locationLong
+        self.locationLati = locationLati
+        self.locationTemp = locationTemp
+    }
+    
+    func setTemp(locationTemp: Int?){
+        self.locationTemp = locationTemp
+    }
+    
+    func getLati() -> Double {
+        return self.locationLati!
+    }
+    
+    func getLong() -> Double {
+        return self.locationLong!
+    }
+}
+
 // MARK:- 이름, 위도, 경도를 저장하는 모델
 /// 이름: 보여주는 용도, 위도와 경도는 서버 통신해서 날씨정보를 받아오는 용도
 struct LocationListModel {
     let locationName: String
     let locationLati: Double
     let locationLong: Double
+    var locationTemp: Int?
 }
 
 // MARK:- HeaderCVC 데이터 모델
