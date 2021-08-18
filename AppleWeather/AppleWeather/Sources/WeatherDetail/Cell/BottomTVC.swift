@@ -11,7 +11,8 @@ class BottomTVC: UITableViewCell {
     
     public static let identifier = "BottomTVC"
     
-    let city : String = "용산구"   // 예시
+    @IBOutlet weak var locationLabel: UILabel!
+    //var city : String = "용산구"   // 예시
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,4 +30,10 @@ class BottomTVC: UITableViewCell {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
+    
+    func setData(location: String){
+        locationLabel.text = "\(location)날씨"
+    }
+    
+    
 }

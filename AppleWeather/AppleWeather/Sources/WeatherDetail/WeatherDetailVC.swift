@@ -25,6 +25,9 @@ class WeatherDetailVC: UIViewController {
     var daysData: [DaysModel] = []
     var weekData: [WeekModel] = []
     var locationTemp: Int!
+    var maxTemp: Int!
+    var minTemp: Int!
+    //var location: String!
     
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -218,7 +221,7 @@ extension WeatherDetailVC: UITableViewDataSource {
                     print("여기")
                     return UITableViewCell()
                 }
-                
+                cell.setData(currentState: descriptionLabel.text!, maxTemp: maxTemp, minTemp: minTemp)
                 return cell
                 
             case 9:
@@ -233,7 +236,7 @@ extension WeatherDetailVC: UITableViewDataSource {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: BottomTVC.identifier, for: indexPath) as? BottomTVC else {
                     return UITableViewCell()
                 }
-                
+                cell.setData(location: locationLabel.text!)
                 return cell
                 
             default:
@@ -283,6 +286,10 @@ extension WeatherDetailVC {
                 do {
                     self.weatherData = try result.map(GetWeatherModel.self)
                     print("모야서버통신", self.weatherData!)
+                    
+                    /// 최고, 최저기온
+                    self.maxTemp = Int((self.weatherData?.daily[0].temp.max)!)
+                    self.minTemp = Int((self.weatherData?.daily[0].temp.min)!)
                     
                     /// 라벨 데이터
                     self.temperatureLabel.text = "\(Int((self.weatherData?.current.temp)!))"
