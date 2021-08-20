@@ -31,7 +31,12 @@ class DaysTVC: UITableViewCell {
         dayLabel.text = day
         // 아이콘 추가해야함
         iconLabel.text = icon.weatherIcon()
-        percentLabel.text = "\(percent)%"
+        if percent < 10 {
+            percentLabel.text = ""
+        }
+        else {
+            percentLabel.text = "\(percent)%"
+        }
         maxtempLabel.text = "\(max)"
         mimtempLabel.text = "\(min)"
     }
