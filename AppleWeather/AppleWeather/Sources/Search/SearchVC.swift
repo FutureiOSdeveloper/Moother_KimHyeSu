@@ -115,18 +115,18 @@ extension SearchVC: UITableViewDelegate {
             
             print("가져온 주소", placeMark.coordinate)
             print("나라이름", placeMark.countryCode!)
-            print("지역이름", placeMark.title!)
+            print("지역이름", placeMark.locality!)
             print("위도", placeMark.coordinate.latitude)
             print("경도", placeMark.coordinate.longitude)
             
             guard let newVC = sb.instantiateViewController(withIdentifier: WeatherDetailVC.identifier) as? WeatherDetailVC else { return }
             newVC.view.backgroundColor = .blue
-            newVC.locationLabel.text = placeMark.title!
+            newVC.locationLabel.text = placeMark.locality
             newVC.locationLatitude = placeMark.coordinate.latitude
             newVC.locationLongitude = placeMark.coordinate.longitude
             newVC.selectView.isHidden = false
             self.present(newVC, animated: true) {
-                //newVC.getWeather(lat: placeMark.coordinate.latitude, lon: placeMark.coordinate.longitude)
+               
                 let locationModel = LocationClass()
                 locationModel.setLocation(locationName: placeMark.title!,
                                           locationLati: placeMark.coordinate.latitude,

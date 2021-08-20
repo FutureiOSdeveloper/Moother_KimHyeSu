@@ -196,7 +196,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             /// 위도 경도->주소변환
             let geocoder = CLGeocoder()
             let locale = Locale(identifier: "Ko-kr")
-            geocoder.reverseGeocodeLocation(ViewController.nowLocation, preferredLocale: locale, completionHandler: {(placemarks, error) in if let address: [CLPlacemark] = placemarks { if let name: String = address.last?.name { print(name)
+            geocoder.reverseGeocodeLocation(ViewController.nowLocation, preferredLocale: locale, completionHandler: {(placemarks, error) in if let address: [CLPlacemark] = placemarks { if let name: String = address.last?.locality { print(name)
                 //ViewController.cityList[0] = name
                 let locationList = LocationClass()
                 locationList.setLocation(locationName: name, locationLati: self.latitude!, locationLong: self.longitude!, locationTemp: nil)
