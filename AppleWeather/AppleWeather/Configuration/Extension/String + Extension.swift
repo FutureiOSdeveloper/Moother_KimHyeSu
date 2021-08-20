@@ -36,4 +36,15 @@ extension String {
         return dateFormatter.string(from: date as Date)
     }
     
+    
+    /// 현재시간
+    func nowTime(_ format: String, _ timezone: Int) -> String {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: timezone)
+        return dateFormatter.string(from: date as Date)
+    }
+    
 }

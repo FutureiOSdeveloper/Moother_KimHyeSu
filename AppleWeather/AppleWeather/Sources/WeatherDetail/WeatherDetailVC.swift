@@ -26,6 +26,7 @@ class WeatherDetailVC: UIViewController {
     var daysData: [DaysModel] = []
     var weekData: [WeekModel] = []
     var locationTemp: Int!
+    var locationTime: String!
     var maxTemp: Int!
     var minTemp: Int!
     //var location: String!
@@ -79,13 +80,15 @@ class WeatherDetailVC: UIViewController {
     }
     
     
+    
+    // MARK:- 지역 추가버튼 눌렀을 때
     @IBAction func selectAddButtonClicked(_ sender: Any) {
         // UserDefaults에 저장하기
         let newLocation = LocationClass()
         newLocation.setLocation(locationName: locationLabel.text! ,
                                 locationLati: locationLatitude,
                                 locationLong: locationLongitude,
-                                locationTemp: locationTemp)
+                                locationTemp: locationTemp, locationTime: locationTime)
         
         //let newLocation = LocationListModel(locationName: locationLabel.text!, locationLati: locationLatitude, locationLong: locationLongitude, locationTemp: nil)
         ViewController.cityList.append(newLocation)
@@ -324,6 +327,10 @@ extension WeatherDetailVC {
                     self.temperatureLabel.text = "\(Int((self.weatherData?.current.temp)!))"
                     self.descriptionLabel.text = self.weatherData?.current.weather[0].weatherDescription
                     locationModel.setTemp(locationTemp: Int((self.weatherData?.current.temp)!))
+                    locationModel.setLocationTime(locationTime: "\((self.weatherData?.current.dt)!)".nowTime("a hh:mm",
+                                                                                                          (self.weatherData?.timezoneOffset)!))
+                    self.locationTime = "\((self.weatherData?.current.dt)!)".nowTime("a hh:mm",
+                                                                                     (self.weatherData?.timezoneOffset)!)
                     self.locationTemp = Int((self.weatherData?.current.temp)!)
                     /// 아래 컬렉션뷰 데이터
                     self.collectionData = ["\((self.weatherData?.current.sunrise)!)".stringFromDate(),

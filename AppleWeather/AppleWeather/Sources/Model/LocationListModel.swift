@@ -12,23 +12,30 @@ class LocationClass {
     var locationLati: Double?
     var locationLong: Double?
     var locationTemp: Int?
+    var locationTime: String?
     
     func setLoaction(){
         self.locationName = "현재위치"
         self.locationLong = 37
         self.locationLati = -127
         self.locationTemp = nil
+        self.locationTime = nil
     }
     
-    func setLocation(locationName: String, locationLati: Double, locationLong: Double, locationTemp: Int?){
+    func setLocation(locationName: String, locationLati: Double, locationLong: Double, locationTemp: Int?, locationTime: String?){
         self.locationName = locationName
         self.locationLong = locationLong
         self.locationLati = locationLati
         self.locationTemp = locationTemp
+        self.locationTime = locationTime
     }
     
     func setTemp(locationTemp: Int?){
         self.locationTemp = locationTemp
+    }
+    
+    func setLocationTime(locationTime: String){
+        self.locationTime = locationTime
     }
     
     func getLati() -> Double {

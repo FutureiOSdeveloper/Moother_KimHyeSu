@@ -199,7 +199,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             geocoder.reverseGeocodeLocation(ViewController.nowLocation, preferredLocale: locale, completionHandler: {(placemarks, error) in if let address: [CLPlacemark] = placemarks { if let name: String = address.last?.locality { print(name)
                 //ViewController.cityList[0] = name
                 let locationList = LocationClass()
-                locationList.setLocation(locationName: name, locationLati: self.latitude!, locationLong: self.longitude!, locationTemp: nil)
+                locationList.setLocation(locationName: name, locationLati: self.latitude!, locationLong: self.longitude!, locationTemp: nil, locationTime: nil)
                 ViewController.cityList[0] = locationList
 
                 print("ViewController.cityList[0]: ", ViewController.cityList[0])
@@ -254,7 +254,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func setDummy(){
         let locationFirst = LocationClass()
-        locationFirst.setLocation(locationName: "현재위치", locationLati: 0, locationLong: 0, locationTemp: nil)
+        locationFirst.setLocation(locationName: "현재위치", locationLati: 0, locationLong: 0, locationTemp: nil, locationTime: nil)
         ViewController.cityList.append(locationFirst)
         
 

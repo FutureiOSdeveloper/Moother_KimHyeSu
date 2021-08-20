@@ -115,13 +115,13 @@ extension SearchVC: UITableViewDelegate {
             
             print("가져온 주소", placeMark.coordinate)
             print("나라이름", placeMark.countryCode!)
-            print("지역이름", placeMark.locality!)
+            print("지역이름", placeMark.locality ?? "없어요..없어..")
             print("위도", placeMark.coordinate.latitude)
             print("경도", placeMark.coordinate.longitude)
             
             guard let newVC = sb.instantiateViewController(withIdentifier: WeatherDetailVC.identifier) as? WeatherDetailVC else { return }
             newVC.view.backgroundColor = .blue
-            newVC.locationLabel.text = placeMark.locality
+            newVC.locationLabel.text = placeMark.locality ?? placeMark.title
             newVC.locationLatitude = placeMark.coordinate.latitude
             newVC.locationLongitude = placeMark.coordinate.longitude
             newVC.selectView.isHidden = false
@@ -131,7 +131,8 @@ extension SearchVC: UITableViewDelegate {
                 locationModel.setLocation(locationName: placeMark.title!,
                                           locationLati: placeMark.coordinate.latitude,
                                           locationLong: placeMark.coordinate.longitude,
-                                          locationTemp: nil)
+                                          locationTemp: nil,
+                                          locationTime: nil)
                 newVC.getWeather(locationModel: locationModel)
             }
         }

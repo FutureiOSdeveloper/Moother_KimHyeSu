@@ -95,7 +95,7 @@ extension LocationListVC : UITableViewDataSource {
         guard let cell = tableview.dequeueReusableCell(withIdentifier: LocationListTVC.identifier, for: indexPath) as? LocationListTVC else {
             return UITableViewCell()
         }
-        cell.setData(time: "오전 12:30",
+        cell.setData(time: ViewController.cityList[indexPath.row].locationTime ?? "아직..",
                      location: ViewController.cityList[indexPath.row].locationName!,
                      temperature: ViewController.cityList[indexPath.row].locationTemp ?? 0 , celsius: !select)
         return cell
