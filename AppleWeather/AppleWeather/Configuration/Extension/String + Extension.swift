@@ -47,4 +47,27 @@ extension String {
         return dateFormatter.string(from: date as Date)
     }
     
+    func weatherIcon() -> String {
+        
+        switch self {
+        case "Thunderstorm":
+            return "⚡️"
+        case "Drizzle":
+            return "🌨"
+        case "Rain":
+            return "☔️"
+        case "Snow":
+            return "❄️"
+        case "Clear":
+            return "☀️"
+        case "Clouds":
+            return "☁️"
+        default:
+            return "💨"
+        }
+        
+    }
+    
+    
+    
 }

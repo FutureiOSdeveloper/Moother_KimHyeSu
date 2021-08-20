@@ -27,9 +27,10 @@ class DaysTVC: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setData(day: String, icon: Int, percent: Int, max: Int, min: Int){
+    func setData(day: String, icon: String, percent: Int, max: Int, min: Int){
         dayLabel.text = day
         // 아이콘 추가해야함
+        iconLabel.text = icon.weatherIcon()
         percentLabel.text = "\(percent)%"
         maxtempLabel.text = "\(max)"
         mimtempLabel.text = "\(min)"

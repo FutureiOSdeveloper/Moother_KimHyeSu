@@ -22,7 +22,7 @@ class HeaderCVC: UICollectionViewCell {
     
     func setData(time: String, icon: String, temperature: Int){
         timeLabel.text = time
-        iconLabel.text = icon
+        iconLabel.text = icon.weatherIcon()
         temperatureLabel.text = "\(temperature)º"
     }
 

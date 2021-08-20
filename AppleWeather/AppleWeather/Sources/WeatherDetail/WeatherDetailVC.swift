@@ -346,33 +346,33 @@ extension WeatherDetailVC {
 
                     for i in 1 ... 24 {
                         self.daysData.append(DaysModel(hour: "\((self.weatherData?.hourly[i].dt)!)".hourFromDate(),
-                                                   weather: "⛅️",
+                                                       weather: (self.weatherData?.hourly[i].weather[0].main)!,
                                                    temperature: Int((self.weatherData?.hourly[i].temp)!)))
                     }
                     /// 주간 날씨 (일주일) - daily
                     self.weekData = [WeekModel(day: "\((self.weatherData?.daily[0].dt)!)".weekdayFromDate(),
-                                               icon: 1, rainPercent: Int((self.weatherData?.daily[0].pop)!),
+                                               icon: (self.weatherData?.daily[0].weather[0].main)!, rainPercent: Int((self.weatherData?.daily[0].pop)!),
                                                maxTemp: Int(((self.weatherData?.daily[0].temp.max)!)), minTemp: Int(((self.weatherData?.daily[0].temp.min)!))),
                                      WeekModel(day: "\((self.weatherData?.daily[1].dt)!)".weekdayFromDate(),
-                                               icon: 1, rainPercent: Int((self.weatherData?.daily[1].pop)! * 100),
+                                               icon: (self.weatherData?.daily[1].weather[0].main)!, rainPercent: Int((self.weatherData?.daily[1].pop)! * 100),
                                                maxTemp: Int(((self.weatherData?.daily[1].temp.max)!)), minTemp: Int(((self.weatherData?.daily[1].temp.min)!))),
                                      WeekModel(day: "\((self.weatherData?.daily[2].dt)!)".weekdayFromDate(),
-                                               icon: 1, rainPercent: Int((self.weatherData?.daily[2].pop)! * 100),
+                                               icon: (self.weatherData?.daily[2].weather[0].main)!, rainPercent: Int((self.weatherData?.daily[2].pop)! * 100),
                                                maxTemp: Int(((self.weatherData?.daily[2].temp.max)!)), minTemp: Int(((self.weatherData?.daily[2].temp.min)!))),
                                      WeekModel(day: "\((self.weatherData?.daily[3].dt)!)".weekdayFromDate(),
-                                               icon: 1, rainPercent: Int((self.weatherData?.daily[3].pop)! * 100),
+                                               icon: (self.weatherData?.daily[3].weather[0].main)!, rainPercent: Int((self.weatherData?.daily[3].pop)! * 100),
                                                maxTemp: Int(((self.weatherData?.daily[3].temp.max)!)), minTemp: Int(((self.weatherData?.daily[3].temp.min)!))),
                                      WeekModel(day: "\((self.weatherData?.daily[4].dt)!)".weekdayFromDate(),
-                                               icon: 1, rainPercent: Int((self.weatherData?.daily[4].pop)! * 100),
+                                               icon: (self.weatherData?.daily[4].weather[0].main)!, rainPercent: Int((self.weatherData?.daily[4].pop)! * 100),
                                                maxTemp: Int(((self.weatherData?.daily[4].temp.max)!)), minTemp: Int(((self.weatherData?.daily[4].temp.min)!))),
                                      WeekModel(day: "\((self.weatherData?.daily[5].dt)!)".weekdayFromDate(),
-                                               icon: 1, rainPercent: Int((self.weatherData?.daily[5].pop)! * 100),
+                                               icon: (self.weatherData?.daily[5].weather[0].main)!, rainPercent: Int((self.weatherData?.daily[5].pop)! * 100),
                                                maxTemp: Int(((self.weatherData?.daily[5].temp.max)!)), minTemp: Int(((self.weatherData?.daily[5].temp.min)!))),
                                      WeekModel(day: "\((self.weatherData?.daily[6].dt)!)".weekdayFromDate(),
-                                               icon: 1, rainPercent: Int((self.weatherData?.daily[6].pop)! * 100),
+                                               icon: (self.weatherData?.daily[6].weather[0].main)!, rainPercent: Int((self.weatherData?.daily[6].pop)! * 100),
                                                maxTemp: Int(((self.weatherData?.daily[6].temp.max)!)), minTemp: Int(((self.weatherData?.daily[6].temp.min)!))),
                                      WeekModel(day: "\((self.weatherData?.daily[7].dt)!)".weekdayFromDate(),
-                                               icon: 1, rainPercent: Int((self.weatherData?.daily[7].pop)! * 100),
+                                               icon: (self.weatherData?.daily[7].weather[0].main)!, rainPercent: Int((self.weatherData?.daily[7].pop)! * 100),
                                                maxTemp: Int(((self.weatherData?.daily[7].temp.max)!)), minTemp: Int(((self.weatherData?.daily[7].temp.min)!)))
                     ]
                     

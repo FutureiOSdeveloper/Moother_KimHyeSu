@@ -35,6 +35,7 @@ class LocationListVC: UIViewController {
 
     }
     
+    // MARK:- 지역 추가시
     @objc func cityAdd(notification: NSNotification){
         tableview.reloadData()
     }

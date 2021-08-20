@@ -66,7 +66,7 @@ struct DaysModel {
 
 struct WeekModel {
     let day: String // 요일
-    let icon: Int // 날씨 아이콘
+    let icon: String // 날씨 아이콘
     let rainPercent: Int // 강수확률
     let maxTemp: Int // 최고기온
     let minTemp: Int // 최저기온
