@@ -93,13 +93,27 @@ extension LocationListVC : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableview.dequeueReusableCell(withIdentifier: LocationListTVC.identifier, for: indexPath) as? LocationListTVC else {
-            return UITableViewCell()
+        switch indexPath.row {
+        case 0:
+            guard let cell = tableview.dequeueReusableCell(withIdentifier: LocationListTVC.identifier, for: indexPath) as? LocationListTVC else {
+                return UITableViewCell()
+            }
+            cell.setData(time: ViewController.cityList[indexPath.row].locationName!,
+                         location: "나의위치",
+                         temperature: ViewController.cityList[indexPath.row].locationTemp ?? 0,
+                         celsius: !select)
+            return cell
+            
+        default:
+            guard let cell = tableview.dequeueReusableCell(withIdentifier: LocationListTVC.identifier, for: indexPath) as? LocationListTVC else {
+                return UITableViewCell()
+            }
+            cell.setData(time: ViewController.cityList[indexPath.row].locationTime ?? "아직..",
+                         location: ViewController.cityList[indexPath.row].locationName!,
+                         temperature: ViewController.cityList[indexPath.row].locationTemp ?? 0 , celsius: !select)
+            return cell
         }
-        cell.setData(time: ViewController.cityList[indexPath.row].locationTime ?? "아직..",
-                     location: ViewController.cityList[indexPath.row].locationName!,
-                     temperature: ViewController.cityList[indexPath.row].locationTemp ?? 0 , celsius: !select)
-        return cell
+        
         
         
     }
@@ -118,7 +132,7 @@ extension LocationListVC : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
             
-            /// 삭제
+            // MARK:- 지역 밀어서 삭제
             if editingStyle == .delete {
                 
                 ViewController.cityList.remove(at: indexPath.row)

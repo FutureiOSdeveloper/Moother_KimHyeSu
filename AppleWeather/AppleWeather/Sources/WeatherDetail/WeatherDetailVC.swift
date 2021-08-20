@@ -60,6 +60,7 @@ class WeatherDetailVC: UIViewController {
 //        return label
 //    }()
     
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,7 +102,7 @@ class WeatherDetailVC: UIViewController {
        // self.presentingViewController?.presentingViewController?.presentingViewController?.becomeFirstResponder()
        
         //vc.view.reloadInputViews()
-        self.presentingViewController?.presentingViewController?.presentingViewController?.removeFromParent()
+        //self.presentingViewController?.presentingViewController?.presentingViewController?.removeFromParent()
         
         self.presentingViewController?.presentingViewController?.dismiss(animated: true){
             print(ViewController.cityList.count)
@@ -324,6 +325,7 @@ extension WeatherDetailVC {
                     self.minTemp = Int((self.weatherData?.daily[0].temp.min)!)
                     
                     /// 라벨 데이터
+                    //self.locationLabel.text = locationModel.locationName
                     self.temperatureLabel.text = "\(Int((self.weatherData?.current.temp)!))"
                     self.descriptionLabel.text = self.weatherData?.current.weather[0].weatherDescription
                     locationModel.setTemp(locationTemp: Int((self.weatherData?.current.temp)!))
