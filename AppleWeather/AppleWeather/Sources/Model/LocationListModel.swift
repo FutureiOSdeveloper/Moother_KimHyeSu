@@ -13,6 +13,13 @@ class LocationClass {
     var locationLong: Double?
     var locationTemp: Int?
     
+    func setLoaction(){
+        self.locationName = "현재위치"
+        self.locationLong = 37
+        self.locationLati = -127
+        self.locationTemp = nil
+    }
+    
     func setLocation(locationName: String, locationLati: Double, locationLong: Double, locationTemp: Int?){
         self.locationName = locationName
         self.locationLong = locationLong

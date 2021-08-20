@@ -12,7 +12,8 @@ import Moya
 
 class WeatherDetailVC: UIViewController {
     
-    private let weatherProvider = MoyaProvider<GetWeatherService>(plugins: [MoyaLoggingPlugin()])
+    //private let weatherProvider = MoyaProvider<GetWeatherService>(plugins: [MoyaLoggingPlugin()])
+    private let weatherProvider = MoyaProvider<GetWeatherService>()
     var weatherData: GetWeatherModel?
     
     public static let identifier = "WeatherDetailVC"
@@ -29,8 +30,8 @@ class WeatherDetailVC: UIViewController {
     var minTemp: Int!
     //var location: String!
     
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet var locationLabel: UILabel!
+    @IBOutlet var descriptionLabel: UILabel!
     
     
     @IBOutlet weak var selectView: UIView!
@@ -49,12 +50,22 @@ class WeatherDetailVC: UIViewController {
     
     @IBOutlet weak var labelTop: NSLayoutConstraint!
     
+//    lazy var locationLabel: UILabel = {
+//        let label = UILabel(frame: .zero)
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        label.textColor = .white
+//        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+//        label.text = "우와아아앙ㅇ"
+//        return label
+//    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableview.backgroundColor = .none
         
-        locationLabel.text = "아놔"
+        //locationLabel.text = "아놔"
         selectView.isHidden = true
         registerXib()
         
@@ -78,9 +89,25 @@ class WeatherDetailVC: UIViewController {
         
         //let newLocation = LocationListModel(locationName: locationLabel.text!, locationLati: locationLatitude, locationLong: locationLongitude, locationTemp: nil)
         ViewController.cityList.append(newLocation)
-        NotificationCenter.default.post(name: NSNotification.Name("addCityNoti")
-                                        ,object: newLocation)
-        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        
+//        let sb = UIStoryboard(name: "Main", bundle: nil)
+//        guard let vc = sb.instantiateViewController(withIdentifier: ViewController.identifier) as? ViewController else {
+//            return
+//        }
+        
+       // self.presentingViewController?.presentingViewController?.presentingViewController?.becomeFirstResponder()
+       
+        //vc.view.reloadInputViews()
+        self.presentingViewController?.presentingViewController?.presentingViewController?.removeFromParent()
+        
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true){
+            print(ViewController.cityList.count)
+            //print(self.presentingViewController)
+            NotificationCenter.default.post(name: NSNotification.Name("addCityNoti")
+                                            ,object: newLocation)
+           
+            //self.reloadInputViews()
+        }
         
 
     }
@@ -206,6 +233,7 @@ extension WeatherDetailVC: UITableViewDataSource {
             case 0 ... 7:
                 
                 guard let cell = tableview.dequeueReusableCell(withIdentifier: DaysTVC.identifier, for: indexPath) as? DaysTVC else {
+                    print("dma")
                     return UITableViewCell()
                 }
                 cell.setData(day: weekData[indexPath.row].day,
@@ -280,12 +308,13 @@ extension WeatherDetailVC {
                                                                   appid: GeneralAPI.APIkey, units: "metric",
                                                                   lang: "kr")
         daysData = []
+        // + viewcontroller 내용 없앴으면..
         weatherProvider.request(.getWeatherOne(param: param) ){ response  in
             switch response {
             case .success(let result):
                 do {
                     self.weatherData = try result.map(GetWeatherModel.self)
-                    print("모야서버통신", self.weatherData!)
+                    //print("모야서버통신", self.weatherData!)
                     
                     /// 최고, 최저기온
                     self.maxTemp = Int((self.weatherData?.daily[0].temp.max)!)
@@ -313,7 +342,7 @@ extension WeatherDetailVC {
                                                    weather: "⛅️",
                                                    temperature: Int((self.weatherData?.hourly[i].temp)!)))
                     }
-                    // 주간 날씨 (일주일) - daily
+                    /// 주간 날씨 (일주일) - daily
                     self.weekData = [WeekModel(day: "\((self.weatherData?.daily[0].dt)!)".weekdayFromDate(),
                                                icon: 1, rainPercent: Int((self.weatherData?.daily[0].pop)!),
                                                maxTemp: Int(((self.weatherData?.daily[0].temp.max)!)), minTemp: Int(((self.weatherData?.daily[0].temp.min)!))),
@@ -340,11 +369,11 @@ extension WeatherDetailVC {
                                                maxTemp: Int(((self.weatherData?.daily[7].temp.max)!)), minTemp: Int(((self.weatherData?.daily[7].temp.min)!)))
                     ]
                     
-                    //self.daysData = [DaysModel(hour: <#T##String#>, weather: <#T##String#>, temperature: self.weatherData?.hourly[0].temp)
-                   //                  DaysModel]
+                    
                     self.tableview.reloadData()
                     self.tableview.delegate = self
                     self.tableview.dataSource = self
+                    
                     
                     
                 } catch(let err) {

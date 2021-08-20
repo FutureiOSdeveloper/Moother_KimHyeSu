@@ -72,6 +72,7 @@ extension SearchVC: UISearchBarDelegate {
             searchResults.removeAll()
             tableview.reloadData()
         }
+        
         searchCompleter.resultTypes = .address
         searchCompleter.queryFragment = searchText
     }
@@ -150,7 +151,13 @@ extension SearchVC: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.setData(title: searchResults[indexPath.row].title)
+        
+        cell.textLabel?.textColor = .gray
+        cell.textLabel?.text = searchResults[indexPath.row].title
+        if let highlightText = searchBar.text {
+            cell.textLabel?.setHighlighted(searchResults[indexPath.row].title, with: highlightText)
+        }
+       
         return cell
         
     }

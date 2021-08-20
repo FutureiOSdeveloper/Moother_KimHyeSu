@@ -16,6 +16,7 @@ class SearchTVC: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        titleLabel.isHidden = true
         // Initialization code
     }
 

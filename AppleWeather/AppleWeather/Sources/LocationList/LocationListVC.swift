@@ -117,9 +117,16 @@ extension LocationListVC : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
             
+            /// 삭제
             if editingStyle == .delete {
                 
                 ViewController.cityList.remove(at: indexPath.row)
+                
+                /// 노티로 메인 ViewController 리로드 하도록 하기
+                NotificationCenter.default.post(name: NSNotification.Name("deleteCityNoti")
+                                                ,object: indexPath.row)
+                
+                
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 
                 

@@ -12,14 +12,13 @@ import Moya
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
 
+    public static let identifier = "ViewController"
+    
     //public static var cityList : [String] = []
-    public static var cityList: [LocationClass] = []
-    public static var tempList : [Int] = []
-    //public static var cityTempList : [Int] = []
-    var vcList : [UIViewController] = []
-    
-    
-    
+    public static var cityList: [LocationClass] = [LocationClass()]
+    public static var vcList : [WeatherDetailVC] = []
+   
+
     var locationManager: CLLocationManager = CLLocationManager()
     var latitude: Double? // 위도
     var longitude: Double?// 경도
@@ -41,6 +40,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }()
     
 
+    @IBOutlet var allView: UIView!
     @IBOutlet weak var bgLottieView: UIView!
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var containviewWidth: NSLayoutConstraint!
@@ -54,61 +54,119 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     
     override func viewWillAppear(_ animated: Bool) {
+        //+화면초기화 추가
+        //removeFromParent()
+        //super.viewWillAppear(true)
+        super.viewWillAppear(animated)
+        ViewController.vcList = []
         getLocation()
         setupPageControl()
-        print("나오니")
+        
+        print("viewWillAppear호출")
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+       
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.bgLottieView.addSubview(lottieView)
-        setDummy()
-       
+        //setDummy()
+        
+        print("ViewDidLoad호출")
         NotificationCenter.default.addObserver(self, selector: #selector(pageChange), name: Notification.Name("noti1"), object: nil)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(cityAdd),
                                                name: Notification.Name("addCityNoti"),
                                                object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(cityDelete),
+                                               name: Notification.Name("deleteCityNoti"),
+                                               object: nil)
+    }
+    
+    @objc func cityDelete(notification: NSNotification){
+        //self.removeFromParent()
+        print("삭제")
+        
+        guard let deleteIndex = notification.object as? Int else {
+            return
+        }
+        
+      //  vcList.remove(at: deleteIndex)
+        //containerView.removeFromSuperview()
+        containviewWidth.constant -= UIScreen.main.bounds.width
+        scrollview.inputViewController?.reloadInputViews()
+        scrollview.reloadInputViews()
+        pagecontrol.numberOfPages -= 1
+        
     }
     
     @objc func cityAdd(notification: NSNotification){
+        //self.becomeFirstResponder()
+        
+        print(self)
+        //self.removeFromParent()
+       // ViewController.vcList = []
+        self.viewWillAppear(true)
+        self.viewDidAppear(true)
+        print("추가")
+//
+//        guard let vc = UIStoryboard(name: "WeatherDetail", bundle: nil).instantiateViewController(withIdentifier: WeatherDetailVC.identifier) as? WeatherDetailVC else {
+//            return
+//        }
+//        self.addChild(vc)
+        
+        //containviewWidth.constant += UIScreen.main.bounds.width
+        //pagecontrol.numberOfPages += 1
         
         
         
-        let containerView = UIView()
-        let sb = UIStoryboard(name: "WeatherDetail", bundle: nil)
-        guard let addLocation = notification.object as? LocationClass else {
-            return
-        }
-        //ViewController.cityList.append(addLocation)
-        if let vc = sb.instantiateViewController(withIdentifier: WeatherDetailVC.identifier) as? WeatherDetailVC {
-            //vc.locationLabel.text = cityList[index]
-            containerView.frame = UIScreen.main.bounds
-            containerView.frame.origin.x = UIScreen.main.bounds.width * CGFloat(ViewController.cityList.count - 1)
-            containView.addSubview(containerView)
-            containerView.addSubview(vc.view)
-            //let locationList =
-            vc.locationLabel.text = addLocation.locationName
-            
-            vcList.append(vc)
-            //vc.getWeather(lat: addLocation.locationLati, lon: addLocation.locationLong)
-            let locationModel = LocationClass()
-            locationModel.setLocation(locationName: addLocation.locationName!,
-                                      locationLati: addLocation.locationLati!,
-                                      locationLong: addLocation.locationLong!, locationTemp: nil)
-            vc.getWeather(locationModel: locationModel)
-            vc.reloadInputViews()
-                    }
-        else { return }
         
-        containviewWidth.constant += UIScreen.main.bounds.width
+        //self.removeFromParent()
+//        self.scrollview.reloadInputViews()
+//        self.containView.reloadInputViews()
+//        self.view.reloadInputViews()
         
-        scrollview.reloadInputViews()
-        pagecontrol.numberOfPages += 1
+        //self.getLocation()
+        
+        //self.viewWillAppear(true)
+        
+       
+//        let sb = UIStoryboard(name: "WeatherDetail", bundle: nil)
+//        guard let addLocation = notification.object as? LocationClass else {
+//            return
+//        }
+//
+//        if let vc = sb.instantiateViewController(withIdentifier: WeatherDetailVC.identifier) as? WeatherDetailVC {
+//            let containerView = UIView()
+//            containerView.frame = UIScreen.main.bounds
+//            containerView.frame.origin.x = UIScreen.main.bounds.width * CGFloat(ViewController.cityList.count - 1)
+//            containView.addSubview(containerView)
+//            containerView.addSubview(vc.view)
+//            vc.locationLabel.text = addLocation.locationName
+//            vcList.append(vc)
+//            let locationModel = LocationClass()
+//            locationModel.setLocation(locationName: addLocation.locationName!,
+//                                      locationLati: addLocation.locationLati!,
+//                                      locationLong: addLocation.locationLong!, locationTemp: nil)
+//            vc.getWeather(locationModel: locationModel)
+//            vc.reloadInputViews()
+//                    }
+//        else { return }
+//
+//        containviewWidth.constant += UIScreen.main.bounds.width
+//
+//        scrollview.reloadInputViews()
+//        pagecontrol.numberOfPages += 1
     }
     
     // MARK:- getLocation() 현재 위치 받아오기
     func getLocation(){
+        //viewWillAppear(true)
         // LocationManager 인스턴스 생성
         //locationManager = CLLocationManager()
         
@@ -143,10 +201,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 let locationList = LocationClass()
                 locationList.setLocation(locationName: name, locationLati: self.latitude!, locationLong: self.longitude!, locationTemp: nil)
                 ViewController.cityList[0] = locationList
-//                ViewController.cityList[0] = LocationListModel(locationName: name,
-//                                                               locationLati: self.latitude!,
-//                                                               locationLong: self.longitude!, locationTemp: nil)
+
                 print("ViewController.cityList[0]: ", ViewController.cityList[0])
+                //ViewController.vcList = []
                 self.setScrollviewUI()
             } //전체 주소
             }
@@ -156,15 +213,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func setScrollviewUI(){
         scrollview.delegate = self
-
+        print("setScrollUI")
+       
         for index in 0..<ViewController.cityList.count {
             
-            
+            //print(ViewController.cityList.count)
             let containerView = UIView()
             let sb = UIStoryboard(name: "WeatherDetail", bundle: nil)
             
             if let vc = sb.instantiateViewController(withIdentifier: WeatherDetailVC.identifier) as? WeatherDetailVC {
-                //vc.locationLabel.text = cityList[index]
+                
                 containerView.frame = UIScreen.main.bounds
                 containerView.frame.origin.x = UIScreen.main.bounds.width * CGFloat(index)
                 containView.addSubview(containerView)
@@ -174,18 +232,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 //print("잘 받아와졌는지", ViewController.cityList[index].locationLong)
                 vc.getWeather(locationModel: ViewController.cityList[index])
                 
-                //let locationModel = LocationClass()
-                //locationModel.setLocation(locationName: ViewController.cityList[index].locationName,
-//                                          locationLati: ViewController.cityList[index].locationLati,
-//                                          locationLong: ViewController.cityList[index].locationLong,
-//                                          locationTemp: nil)
-                //vc.getWeather(locationModel: locationModel)
-                
                 vc.reloadInputViews()
-                vcList.append(vc)
+                ViewController.vcList.append(vc)
             }
             else { return }
-            
+        
         }
         
         containviewWidth.constant = UIScreen.main.bounds.width * CGFloat(ViewController.cityList.count-1)
@@ -196,6 +247,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         scrollview.alwaysBounceVertical = false
         //scrollview.alwaysBounceHorizontal = false
+        print("몇개나오는지", ViewController.cityList.count)
         pagecontrol.numberOfPages = ViewController.cityList.count
         
     }
@@ -204,7 +256,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let locationFirst = LocationClass()
         locationFirst.setLocation(locationName: "현재위치", locationLati: 0, locationLong: 0, locationTemp: nil)
         ViewController.cityList.append(locationFirst)
-//        ViewController.cityList.append(contentsOf: [LocationListModel(locationName: "현재위치", locationLati: 0, locationLong: 0, locationTemp: nil)])
+        
 
     }
     
